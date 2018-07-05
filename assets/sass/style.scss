@@ -107,6 +107,23 @@ b {
     font-weight: bold;
 }
 
+sub,
+sup {
+    font-size: 80%;
+}
+
+sub {
+    vertical-align: sub;
+}
+
+sup {
+    vertical-align: super;
+}
+
+small {
+    font-size: 80%;
+}
+
 img {
     display: inline-block;
     vertical-align: middle;

@@ -17,61 +17,59 @@
 <?php wp_body(); ?>
 
 <div class="wrapper">
-    <?php /*
-    <div class="pre-header">
+
+    <header class="header">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                    <nav class="second-menu">
-                        <?php wp_nav_menu(array(
-                            'theme_location' => 'second-menu',
-                            'container' => false,
-                            'menu_class' => 'menu-container',
-                            'menu_id' => '',
-                            'fallback_cb' => 'wp_page_menu',
-                            'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                            'depth' => 2
-                        )); ?>
-                    </nav>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                    Some info here
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                    Some info here
+                <div class="col-xs-12">
+                    <?php if (has_nav_menu('main-nav')) { ?>
+                        <nav class="nav js-menu">
+                            <button type="button" tabindex="0" class="menu-item-close menu-close js-menu-close"></button>
+                            <?php wp_nav_menu(array(
+                                'theme_location' => 'main-nav',
+                                'container' => false,
+                                'menu_class' => 'menu-container',
+                                'menu_id' => '',
+                                'fallback_cb' => 'wp_page_menu',
+                                'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                                'depth' => 3
+                            )); ?>
+                        </nav>
+                    <?php } ?>
                 </div>
             </div>
-        </div>
-    </div>
-    */ ?>
-
-    <header class="page-header">
-        <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
-
+                <div class="col-md-4">
+                    <?php if (has_phones()) { ?>
+                        <ul class="phone">
+                            <?php foreach (get_phones() as $phone) { ?>
+                                <li class="phone-item">
+                                    <a href="tel:<?php echo esc_attr(get_phone_number($phone)); ?>" class="phone-number">
+                                        <?php echo esc_html($phone); ?>
+                                    </a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    <?php } ?>
+                    <br>
+                    <small>Пн-Сб: 09<sup>00</sup> - 19<sup>00</sup></small>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-                    <?php get_search_form(); ?>
+                <div class="col-md-4 text-center">
+                    <div class="logo text-uppercase">
+                        <?php get_default_logo_link(); ?>
+                        <br>
+                        Vego <br> <small>development</small>
+                    </div>
+                </div>
+                <div class="col-md-4 text-right">
+                    <button type="button" class="button-medium js-callback">
+                        <i class="fas fa-phone-volume" aria-hidden="true"></i>
+                        <?php _e('Callback', 'brainworks'); ?>
+                    </button>
                 </div>
             </div>
         </div>
     </header>
-
-    <?php if (has_nav_menu('main-nav')) { ?>
-        <nav class="nav js-menu">
-            <button type="button" tabindex="0" class="menu-item-close menu-close js-menu-close"></button>
-            <?php wp_nav_menu(array(
-                'theme_location' => 'main-nav',
-                'container' => false,
-                'menu_class' => 'menu-container',
-                'menu_id' => '',
-                'fallback_cb' => 'wp_page_menu',
-                'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                'depth' => 3
-            )); ?>
-        </nav>
-    <?php } ?>
 
     <div class="page-wrapper container">
 

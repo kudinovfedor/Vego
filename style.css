@@ -12,7 +12,7 @@ Version: 1.0.0
 Tags: one-column, two-columns, full-width-template, e-commerce
 */
 /* CORE */
-@import url("https://fonts.googleapis.com/css?family=Comfortaa|Lobster&subset=cyrillic");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;subset=cyrillic");
 html,
 body,
 div,
@@ -235,32 +235,29 @@ a img.aligncenter {
 .gallery-caption {
   background-color: lightblue; }
 
-.link {
-  text-decoration: underline;
-  color: #3498db; }
-
-.bold {
-  font-weight: 900; }
-
-.center-block {
-  text-align: center;
-  display: block !important;
-  margin: 0 auto; }
-
-.text-muted {
-  color: #aaa; }
-
-.text-center {
-  text-align: center; }
-
 .text-left {
   text-align: left; }
 
 .text-right {
   text-align: right; }
 
-.text-just {
+.text-center {
+  text-align: center; }
+
+.text-justify {
   text-align: justify; }
+
+.text-light {
+  font-weight: 300; }
+
+.text-semibold {
+  font-weight: 600; }
+
+.text-bold {
+  font-weight: 700; }
+
+.text-extrabold {
+  font-weight: 800; }
 
 .text-uppercase {
   text-transform: uppercase; }
@@ -271,11 +268,8 @@ a img.aligncenter {
 .text-nowrap {
   white-space: nowrap; }
 
-.hide-on-mobile {
-  display: block !important; }
-
-.hide-on-desktop {
-  display: none !important; }
+.text-muted {
+  color: #aaa; }
 
 .pull-right {
   float: right; }
@@ -285,6 +279,24 @@ a img.aligncenter {
 
 .pull-none {
   float: none; }
+
+.hide-on-mobile {
+  display: block !important; }
+
+.hide-on-desktop {
+  display: none !important; }
+
+.link {
+  text-decoration: underline;
+  color: #3498db; }
+
+.bold {
+  font-weight: 700; }
+
+.center-block {
+  text-align: center;
+  display: block !important;
+  margin: 0 auto; }
 
 @media (max-width: 544px) {
   .hide-on-mobile {
@@ -4712,7 +4724,7 @@ article header p {
 /* ELEMENTS */
 h1, h2, h3, h4, h5, h6, h1.hero-title {
   color: #2c3e50;
-  font-family: "Arial", "Helvetica", sans-serif; }
+  font-family: "Open Sans", "Arial", "Helvetica", sans-serif; }
   h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, h1.hero-title a {
     color: #2c3e50; }
     h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, h1.hero-title a:hover {
@@ -5089,7 +5101,7 @@ form fieldset {
   position: relative;
   display: inline-block;
   border-radius: 4px;
-  font-family: "Arial", "Helvetica", sans-serif;
+  font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
   height: auto;
   cursor: pointer;
   font-size: 16px;
@@ -5125,7 +5137,7 @@ a.button {
   position: relative;
   display: inline-block;
   border-radius: 4px;
-  font-family: "Arial", "Helvetica", sans-serif;
+  font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
   height: auto;
   cursor: pointer;
   font-size: 16px;
@@ -5177,7 +5189,7 @@ a.button {
   position: relative;
   display: inline-block;
   border-radius: 4px;
-  font-family: "Arial", "Helvetica", sans-serif;
+  font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
   height: auto;
   cursor: pointer;
   font-size: 16px;
@@ -5213,7 +5225,7 @@ a.button {
   position: relative;
   display: inline-block;
   border-radius: 4px;
-  font-family: "Arial", "Helvetica", sans-serif;
+  font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
   height: auto;
   cursor: pointer;
   font-size: 16px;
@@ -5249,7 +5261,7 @@ a.button {
   position: relative;
   display: inline-block;
   border-radius: 4px;
-  font-family: "Arial", "Helvetica", sans-serif;
+  font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
   height: auto;
   cursor: pointer;
   font-size: 16px;
@@ -6117,7 +6129,7 @@ body {
   min-width: 320px;
   background-color: #fff;
   color: #000;
-  font-family: "Arial", "Helvetica", sans-serif;
+  font-family: "Open Sans", "Arial", "Helvetica", sans-serif;
   font-weight: 400; }
 
 .wrapper {
@@ -6131,6 +6143,19 @@ body {
 strong,
 b {
   font-weight: bold; }
+
+sub,
+sup {
+  font-size: 80%; }
+
+sub {
+  vertical-align: sub; }
+
+sup {
+  vertical-align: super; }
+
+small {
+  font-size: 80%; }
 
 img {
   display: inline-block;
