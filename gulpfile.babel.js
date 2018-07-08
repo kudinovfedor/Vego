@@ -27,12 +27,12 @@ const getFullDate = () => {
 };
 
 gulp.task('svg', () => {
-    return gulp.src(`${themeName}/assets/img/svg/*.svg`)
+    return gulp.src(`assets/img/svg/*.svg`)
         .pipe(plumber())
         .pipe(svgmin({js2svg: {pretty: false}}))
         .pipe(svgstore({inlineSvg: true}))
         .pipe(rename({basename: 'svg', prefix: '', suffix: '-sprite', extname: '.svg'}))
-        .pipe(gulp.dest(`${themeName}/assets/img/`));
+        .pipe(gulp.dest(`assets/img/`));
 });
 
 gulp.task('sass', () => {
@@ -67,7 +67,7 @@ gulp.task('js', () => {
             compress: false,
         }))
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./assets/js'));
+        .pipe(gulp.dest('assets/js'));
 });
 
 gulp.task('zip', () => {
@@ -86,9 +86,9 @@ gulp.task('watch', () => {
 
 gulp.task('default', () => {
     browserSync.init({
-        proxy: "sites.local/brainworks",
+        proxy: "brainworks.local",
     });
-    //gulp.watch('assets/sass/**/*.scss', gulp.series('sass'));
+    gulp.watch('assets/sass/**/*.scss', gulp.series('sass'));
     gulp.watch('assets/img/svg/*.svg', gulp.series('svg'));
     gulp.watch('style.css').on('change', browserSync.reload);
     //gulp.watch('assets/js/brainworks.js', gulp.series('js'));

@@ -3,7 +3,7 @@
  * All the functions are in the PHP pages in the `inc/` folder.
  */
 
-show_admin_bar(false);
+//show_admin_bar(false);
 
 require_once locate_template('/inc/helpers.php');
 require_once locate_template('/inc/admin.php');
@@ -22,3 +22,18 @@ require_once locate_template('/inc/split-post-pagination.php');
 require_once locate_template('/inc/feedback.php');
 require_once locate_template('/inc/shortcodes.php');
 require_once locate_template('/inc/meta-boxes.php');
+
+require_once('inc/post-type-info.php');
+
+function dump($expression)
+{
+    echo '<pre>';
+    var_dump($expression);
+    echo '</pre>';
+}
+
+function dd($expression)
+{
+    dump($expression);
+    die();
+}

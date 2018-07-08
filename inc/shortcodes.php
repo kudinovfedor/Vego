@@ -378,3 +378,22 @@ if (!function_exists('bw_advert_shortcode')) {
 
     add_shortcode('bw-advert', 'bw_advert_shortcode');
 }
+
+/**
+ * Add Quicktags Buttons
+ */
+function bw_add_quicktags()
+{
+    if (wp_script_is('quicktags')) { ?>
+        <script>
+            QTags.addButton('polylang', 'polylang', '[polylang]', '', 'з', 'Add shortcode Polylang');
+            QTags.addButton('social', 'social', '[bw-social]', '', 's', 'Add shortcode Social');
+            QTags.addButton('phones', 'phones', '[bw-phone]', '', 'p', 'Add shortcode Phones');
+            QTags.addButton('sitemap', 'sitemap', '[bw-html-sitemap]', '', 's', 'Add shortcode Sitemap');
+            QTags.addButton('messengers', 'messengers', '[bw-messengers]', '', 'm', 'Add shortcode Messengers');
+            QTags.addButton('last-posts', 'last-posts', '[bw-last-posts]', '', 'l', 'Add shortcode Last Posts');
+            QTags.addButton('advert-posts', 'advert-posts', '[bw-advert]', '', 'a', 'Add shortcode Advert Posts');
+        </script>
+    <?php }
+}
+add_action('admin_print_footer_scripts', 'bw_add_quicktags');
