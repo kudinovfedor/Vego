@@ -131,20 +131,15 @@
 }
 
 .nav {
-    display: block;
-    position: relative;
-    margin: 10px 15px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.35);
-    border-radius: 4px;
-    text-align: center;
     .menu {
         @extend %reset-list;
         font-size: 0;
+        text-align: center;
 
         &-item {
             display: inline-block;
             vertical-align: middle;
-            padding: 5px;
+            padding: 0 20px;
 
             .menu-item-has-children-arrow {
                 display: none;
@@ -215,6 +210,7 @@
             &.current-menu-ancestor {
                 .menu-link {
                     text-decoration: none;
+                    border-bottom-color: #ff9f00;
                 }
             }
 
@@ -229,13 +225,15 @@
 
         &-link {
             display: block;
-            padding: 8px 10px;
-            color: #000;
-            font-size: 16px;
+            padding: 10px 0;
+            color: inherit;
+            font-size: 12px;
+            font-weight: bold;
             line-height: 1.3;
             text-align: center;
-            text-transform: none;
+            text-transform: uppercase;
             text-decoration: none;
+            border-bottom: 2px solid transparent;
             @extend %smooth_animation;
         }
     }
@@ -297,8 +295,8 @@
         &-link {
             display: block;
             padding: 8px 15px;
-            color: #000;
-            font-size: 14px;
+            color: #333334;
+            font-size: 12px;
             line-height: 1.3;
             text-decoration: none;
             @extend %smooth_animation;

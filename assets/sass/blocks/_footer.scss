@@ -3,25 +3,98 @@
     right: 0;
     bottom: 0;
     left: 0;
-}
-
-.pre-footer {
-    padding: 20px 0;
-    background-color: lighten($footerBgColor, 10%);
-}
-
-.copyright {
-    padding: 14px 0;
     background-color: $footerBgColor;
-    text-align: center;
     color: $footerFontColor;
+    font-size: 12px;
 
-    a {
-        color: $footerFontColor;
-        text-decoration: underline;
+    &-main {
+        padding: 50px 0 15px;
+    }
 
-        &:hover {
-            color: $footerLinkColorActive;
+    .phone {
+        margin-bottom: 15px;
+    }
+
+    .widget {
+        &-title {
+            padding-top: 5px;
+            color: #333;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        &-item {
+            a {
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
+            .phone-number {
+                font-size: 18px;
+                color: $footerFontColor;
+                text-decoration: none;
+            }
+
+            p {
+                font-size: 12px;
+                line-height: (16/12);
+                margin-bottom: 10px;
+            }
+        }
+
+        &_nav_menu {
+            li {
+                display: inline-block;
+                vertical-align: top;
+                width: 49%;
+                line-height: 1;
+                padding-right: 20px;
+                margin-bottom: 30px;
+
+                &.current-menu-item,
+                &.current_page_item {
+                    a {
+                        text-decoration: underline;
+                        color: $footerLinkColor;
+                    }
+                }
+            }
+
+            a {
+                color: #6e4500;
+                font-size: 12px;
+                line-height: 1.2;
+                font-weight: 600;
+                text-transform: uppercase;
+                text-decoration: none;
+
+                &:hover {
+                    color: $footerLinkColor;
+                }
+            }
+        }
+    }
+
+    &-copyright {
+        margin-top: 37px;
+        position: relative;
+        padding: 25px;
+        font-size: 10px;
+        color: #b4945f;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -37px;
+            left: 0;
+            right: 0;
+            display: block;
+            height: 37px;
+            background: image-url('line-with-logo.png') no-repeat center center;
         }
     }
 }

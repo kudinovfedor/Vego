@@ -89,6 +89,16 @@
     margin: 0 auto;
 }
 
+.d {
+    &-block {
+        display: block;
+    }
+
+    &-inline-block {
+        display: inline-block;
+    }
+}
+
 //xs 544
 @media #{$mobile} {
     .hide {

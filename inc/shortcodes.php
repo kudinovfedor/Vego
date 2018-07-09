@@ -379,6 +379,38 @@ if (!function_exists('bw_advert_shortcode')) {
     add_shortcode('bw-advert', 'bw_advert_shortcode');
 }
 
+if (!function_exists('svg_icon_shortcode')) {
+    /**
+     * Add Shortcode SVG Icon
+     * @param $atts
+     * @return string
+     */
+    function svg_icon_shortcode($atts)
+    {
+        // Attributes
+        $atts = shortcode_atts(
+            array(
+                'name' => '',
+                'width' => 30,
+                'height' => 30,
+                'color' => '#000',
+                'class' => '',
+            ),
+            $atts
+        );
+
+        $svg = sprintf(
+            '<svg class="svg-icon %s" width="%d" height="%d" fill="%s"><use xlink:href="#%s"></use></svg>',
+            esc_attr($atts['class']), esc_attr($atts['width']), esc_attr($atts['height']), esc_attr($atts['color']),
+            esc_attr($atts['name'])
+        );
+
+        return $svg;
+    }
+
+    add_shortcode('svg-icon', 'svg_icon_shortcode');
+}
+
 /**
  * Add Quicktags Buttons
  */
@@ -393,7 +425,9 @@ function bw_add_quicktags()
             QTags.addButton('messengers', 'messengers', '[bw-messengers]', '', 'm', 'Add shortcode Messengers');
             QTags.addButton('last-posts', 'last-posts', '[bw-last-posts]', '', 'l', 'Add shortcode Last Posts');
             QTags.addButton('advert-posts', 'advert-posts', '[bw-advert]', '', 'a', 'Add shortcode Advert Posts');
+            QTags.addButton('svg-icon', 'svg-icon', '[svg-icon name=credit-bag width=30 height=30 color=#000 class=]', '', 's', 'Add shortcode SVG Icon');
         </script>
     <?php }
 }
+
 add_action('admin_print_footer_scripts', 'bw_add_quicktags');

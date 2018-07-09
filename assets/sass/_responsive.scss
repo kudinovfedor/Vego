@@ -1,0 +1,126 @@
+
+@media only screen and (max-width: 960px) {
+    .info {
+        &-item {
+            width: 50%;
+        }
+    }
+
+    .payment {
+        &-thumbnail {
+            display: none;
+        }
+
+        &-column {
+            margin-left: 0;
+            width: auto;
+            padding: 25px 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .section {
+        &-headline {
+            margin-bottom: 30px;
+        }
+    }
+
+    .blog {
+        &-item {
+            width: 50%;
+            margin-bottom: 30px;
+        }
+    }
+
+    .payment {
+        &-column {
+            p {
+                + .svg-icon {
+                    margin-top: 0;
+                }
+            }
+
+            .svg-icon {
+                + h2 {
+                    margin-top: 15px;
+                }
+            }
+        }
+    }
+
+    .footer {
+        text-align: center;
+
+        &-main {
+            padding: 20px 0 0;
+        }
+
+        .widget {
+            &-item,
+            &-title {
+                margin-bottom: 10px;
+            }
+
+            &-item {
+                .phone-number {
+                    font-size: 14px;
+                }
+            }
+
+            &_nav_menu {
+                li {
+                    width: auto;
+                    padding-right: 0;
+                    margin: 0 10px 10px 0;
+                }
+            }
+        }
+
+        .phone {
+            margin-bottom: 10px;
+        }
+
+        .social-item {
+            margin: 5px 20px;
+        }
+
+        &-copyright {
+            padding: 10px 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .info {
+        &-list {
+            text-align: center;
+        }
+
+        &-item {
+            width: 100%;
+            max-width: 320px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .section {
+        &-headline {
+            margin-bottom: 15px;
+        }
+    }
+
+    .blog {
+        &-item {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        &-thumbnail,
+        &-datetime {
+            margin-bottom: 10px;
+        }
+    }
+}

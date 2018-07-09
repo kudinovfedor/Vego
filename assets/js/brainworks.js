@@ -15,8 +15,8 @@
         html.removeClass('no-js').addClass('js');
 
         // Stick Footer
-        var footerHeight = $('.footer').outerHeight() + 20;
-        $('.page-wrapper').css('padding-bottom', footerHeight + 'px');
+        var footerHeight = $('.footer').outerHeight() + 0;
+        $('.wrapper').css('padding-bottom', footerHeight + 'px');
 
         // Scroll Top
         scrollTop('.js-scroll-top');

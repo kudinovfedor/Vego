@@ -1,13 +1,50 @@
-.pre-header {
-    padding: 5px 0;
-    background-color: $preHeaderBgColor;
-    color: $preHeaderColor;
-}
-
-.page-header {
-    padding: 10px 0;
-    background-color: $headerBgColor;
+.header {
+    position: relative;
     color: $headerFontColor;
+    font-size: 12px;
+    background: $headerBgColor none no-repeat center center;
+    @include background-size(cover);
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: auto;
+    }
+
+    &::before {
+        top: 0;
+        bottom: 0;
+        background-color: #f5f0e9;
+        @include opacity(.9);
+    }
+
+    &::after {
+        bottom: 0;
+        width: 100%;
+        max-width: 940px;
+        border-bottom: 2px solid #ff9f00;
+    }
+
+    &-container {
+        padding-top: 20px;
+        padding-bottom: 30px;
+    }
+
+    &-nav {
+        margin-bottom: 30px;
+    }
+
+    &-phone,
+    &-btn {
+        padding-top: 20px;
+    }
+
+    &-time-work {
+        padding-left: 12px;
+    }
 }
 
 .logo {
@@ -16,6 +53,19 @@
     &-img {
         display: inline-block;
         vertical-align: middle;
+    }
+
+    line-height: 1.2;
+
+    &-vego {
+        margin-top: 10px;
+        font-size: 22px;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
+    &-dev {
+        font-size: 10px;
     }
 }
 
@@ -34,10 +84,23 @@
 
     &-number {
         display: inline-block;
+        color: inherit;
+        font-size: 22px;
+        font-weight: 300;
+        line-height: 1;
         text-decoration: none;
+        border-bottom: 1px solid transparent;
 
         &:hover {
-            text-decoration: underline;
+            color: inherit;
+            text-decoration: none;
+            border-bottom-color: #333334;
+        }
+    }
+
+    + {
+        .header-time-work {
+            margin-top: 10px;
         }
     }
 }
@@ -52,15 +115,20 @@
     }
 
     &-item {
-        margin: 0 5px;
+        margin: 5px 40px 5px 0;
     }
 
     &-link {
         display: block;
         text-align: center;
         text-decoration: none;
+        color: #ff9f00;
+        font-size: 18px;
+        line-height: 1;
 
         &:hover {
+            text-decoration: none;
+            @include opacity(.8);
         }
     }
 }

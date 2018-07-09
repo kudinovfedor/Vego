@@ -24,8 +24,8 @@ $preHeaderBgColor: $themeColorThree;
 $preHeaderColor: $themeColorFour;
 
 // HEADER
-$headerBgColor: #232323;
-$headerFontColor: #fff;
+$headerBgColor: #f5f0e9;
+$headerFontColor: #333334;
 $headerHighlightBgColor: $themeColorTwo;
 $headerHighlightColor: #fff;
 
@@ -61,20 +61,20 @@ $menu-close-color: $themeColorTwo;
 $menuContainerMobilePaddingTop: 30%;
 
 // FOOTER
-$footerBgColor: #fff;
-$footerFontColor: #232323;
-$footerLinkColorActive: darken($footerFontColor, 5%);
+$footerBgColor: #f5f0e9;
+$footerFontColor: #333;
+$footerLinkColor: #e68f00;
 
 // WRAPPER
 $wrapperBgColor: #fff;
 
 // TITLES
-$titleFontColor: $themeColorOne;
+$titleFontColor: #333334;
 $titleFontColorActive: lighten($titleFontColor, 10%);
 
 // LINKS
-$linkFontColor: #000;
-$linkFontColorActive: lighten($linkFontColor, 20%);
+$linkFontColor: #e68f00;
+$linkFontColorActive: lighten($linkFontColor, 10%);
 
 // BUTTONS
 $buttonFontColor: #fff;

@@ -1,5 +1,3 @@
-</div><!-- .page-wrapper end-->
-
 <footer class="footer">
     <?php if (is_active_sidebar('footer-widget-area')) : ?>
         <div class="footer-main">
@@ -10,9 +8,11 @@
             </div>
         </div>
     <?php endif; ?>
-    <div class="footer-copyright text-center text-uppercase">
-        <?php echo date('Y'); ?> &copy; <?php bloginfo('name'); ?>
-        Все права защищены
+    <div class="container text-center text-uppercase">
+        <div class="footer-copyright ">
+            <?php echo date('Y'); ?> &copy; <?php bloginfo('name'); ?>
+            Все права защищены
+        </div>
     </div>
 </footer>
 

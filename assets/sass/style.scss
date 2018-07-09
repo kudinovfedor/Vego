@@ -146,15 +146,20 @@ img {
     margin-right: auto;
     @extend %clearfix;
 
-    @media only screen and (min-width: 1200px) {
-        width: 1170px;
+    @media only screen and (min-width: 990px) {
+        width: 970px;
     }
 }
 
 .kama_breadcrumbs {
     padding: 10px 0;
-    font-size: 14px;
-    margin-bottom: 10px;
+    font-size: 12px;
+
+    .kb_sep {
+        color: #ff9f00;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
 }
 
 .page-name {
@@ -180,3 +185,6 @@ img {
 .is-hide {
     display: none;
 }
+
+@import "pages/front-page";
+@import "responsive";
