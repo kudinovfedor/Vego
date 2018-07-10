@@ -480,3 +480,119 @@
         margin-left: 5px;
     }
 }
+
+.project {
+    &-list {
+        margin-top: 80px;
+    }
+
+    &-item {
+        position: relative;
+        min-height: 340px;
+        padding: 30px 25px 30px 400px;
+        margin: 0 0 60px;
+        font-size: 14px;
+        color: #333;
+        line-height: (16/14);
+    }
+
+    &-thumbnail {
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        width: 340px;
+        height: 340px;
+        background: none no-repeat center center;
+        background-size: cover;
+    }
+
+    &-item,
+    &-thumbnail {
+        background-color: #fff;
+        box-shadow: 0 8px 30px rgba(#2b1b00, .15);
+    }
+
+    &-header {
+        margin-bottom: 15px;
+    }
+
+    &-type {
+        margin-bottom: 5px;
+    }
+
+    &-logo {
+        position: absolute;
+        top: 35px;
+        right: 35px;
+        max-width: 145px;
+        max-height: 55px;
+    }
+
+    &-price {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 10px 15px;
+        color: #303030;
+        font-size: 16px;
+        background-color: #f5f0e9;
+        border-radius: 5px;
+
+        &-value {
+            font-size: 24px;
+        }
+    }
+
+    &-info {
+        position: relative;
+        min-height: 100px;
+    }
+
+    &-details {
+        @extend %reset-list;
+        width: 250px;
+
+        li {
+            overflow: hidden;
+            color: #999;
+            font-size: 14px;
+            line-height: (16/14);
+
+            & + li {
+                margin-top: 25px;
+            }
+        }
+
+        span {
+            color: #333;
+            float: right;
+            padding-left: 10px;
+            width: 140px;
+        }
+    }
+
+    &-side {
+        &-left,
+        &-right {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        &-left {
+            width: 45%;
+        }
+
+        &-right {
+            width: 54%;
+        }
+    }
+
+    &-title {
+        @include responsive-font-size(20px, 36px, 480px, 1024px, 28px);
+    }
+
+    &-link {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+}

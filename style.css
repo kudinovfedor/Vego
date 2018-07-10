@@ -27,7 +27,7 @@ ul { list-style: none; }
 
 .form-row:after, .container:after, .article:after { clear: both; content: " "; display: table; }
 
-.nav .menu, .nav .sub-menu, .phone, .social, .messenger, .lang, .info-list, .blog-list, .pagination-list { margin: 0; padding: 0; list-style: none; }
+.nav .menu, .nav .sub-menu, .phone, .social, .messenger, .lang, .info-list, .blog-list, .pagination-list, .project-details { margin: 0; padding: 0; list-style: none; }
 
 .alignnone { margin: 5px 20px 20px 0; }
 
@@ -3628,6 +3628,48 @@ img { display: inline-block; vertical-align: middle; max-width: 100%; height: au
 .pagination-prev { margin-right: 5px; }
 
 .pagination-next { margin-left: 5px; }
+
+.project-list { margin-top: 80px; }
+
+.project-item { position: relative; min-height: 340px; padding: 30px 25px 30px 400px; margin: 0 0 60px; font-size: 14px; color: #333; line-height: 1.14286; }
+
+.project-thumbnail { position: absolute; left: 20px; bottom: 20px; width: 340px; height: 340px; background: none no-repeat center center; background-size: cover; }
+
+.project-item, .project-thumbnail { background-color: #fff; -webkit-box-shadow: 0 8px 30px rgba(43, 27, 0, 0.15); box-shadow: 0 8px 30px rgba(43, 27, 0, 0.15); }
+
+.project-header { margin-bottom: 15px; }
+
+.project-type { margin-bottom: 5px; }
+
+.project-logo { position: absolute; top: 35px; right: 35px; max-width: 145px; max-height: 55px; }
+
+.project-price { display: inline-block; vertical-align: middle; padding: 10px 15px; color: #303030; font-size: 16px; background-color: #f5f0e9; border-radius: 5px; }
+
+.project-price-value { font-size: 24px; }
+
+.project-info { position: relative; min-height: 100px; }
+
+.project-details { width: 250px; }
+
+.project-details li { overflow: hidden; color: #999; font-size: 14px; line-height: 1.14286; }
+
+.project-details li + li { margin-top: 25px; }
+
+.project-details span { color: #333; float: right; padding-left: 10px; width: 140px; }
+
+.project-side-left, .project-side-right { display: inline-block; vertical-align: top; }
+
+.project-side-left { width: 45%; }
+
+.project-side-right { width: 54%; }
+
+.project-title { font-size: 20px; }
+
+@media (min-width: 480px) and (max-width: 1023px) { .project-title { font-size: 28px; font-size: calc(0.02941 * 100vw + 5.88235px); } }
+
+@media (min-width: 1024px) { .project-title { font-size: 36px; } }
+
+.project-link { position: absolute; left: 0; bottom: 0; }
 
 @media only screen and (max-width: 960px) { .info-item { width: 50%; }
   .payment-thumbnail { display: none; }

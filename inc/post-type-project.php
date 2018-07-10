@@ -18,7 +18,7 @@ function projects_get_meta_box($meta_boxes)
                 'placeholder' => esc_html__('Построен', 'brainworks'),
             ),
             array(
-                'id' => $prefix . 'ompletion-date',
+                'id' => $prefix . 'completion-date',
                 'type' => 'text',
                 'name' => esc_html__('Дата сдачи', 'brainworks'),
                 'placeholder' => esc_html__('III квартал 2018', 'brainworks'),
@@ -46,6 +46,13 @@ function projects_get_meta_box($meta_boxes)
                 'type' => 'text',
                 'name' => esc_html__('Тип', 'brainworks'),
                 'placeholder' => esc_html__('Коттеджный двор', 'brainworks'),
+            ),
+            array(
+                'id' => $prefix . 'logo',
+                'type' => 'image_advanced',
+                'name' => esc_html__( 'Логотип', 'brainworks' ),
+                'max_file_uploads' => 1,
+                'max_status' => false,
             ),
         ),
     );
