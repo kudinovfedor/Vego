@@ -175,5 +175,5 @@ function bw_breadcrumbs_localization($l10n)
         'tax_tag'    => __('%1$s from "%2$s" by tag: <b>%3$s</b>', 'brainworks'),);
 }
 
-add_filter('kama_breadcrumbs_default_loc', 'bw_breadcrumbs_localization', 10, 1);
+//add_filter('kama_breadcrumbs_default_loc', 'bw_breadcrumbs_localization', 10, 1);
 

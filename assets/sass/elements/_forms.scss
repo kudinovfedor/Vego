@@ -1,7 +1,7 @@
 @mixin form-style {
     background-color: $formBgColor;
     padding: 25px;
-    @include box-shadow($shadow);
+    box-shadow: $shadow;
 }
 
 @mixin form-field-style {
@@ -11,7 +11,7 @@
     background-color: $formFieldBackgroundColor;
     color: $formFieldTextColor;
     font-size: $formFieldTextSize;
-    @include border-radius($formFieldBorderRadius);
+    border-radius: $formFieldBorderRadius;
 }
 
 %form-field-style {
@@ -68,7 +68,11 @@ form {
 
 //Comment form on single post page
 #commentform {
-    @include form-style;
+    max-width: 540px;
+    padding: 25px;
+    background-color: #fff;
+    box-shadow: 0 8px 30px rgba(43, 27, 0, 0.3);
+    margin-bottom: 30px;
 
     .form-group {
         label {
@@ -76,15 +80,12 @@ form {
         }
 
         input {
-            width: 100%;
-            margin-bottom: 10px;
-            @extend %form-field-style;
+            @extend .form-field;
         }
 
         textarea {
-            width: 100%;
+            @extend .form-field;
             margin-bottom: 10px;
-            @extend %form-field-style;
         }
     }
 }
@@ -112,7 +113,7 @@ select {
 .is-mobile {
     input,
     select {
-        @include appearance(none);
+        appearance: none;
     }
 }
 
@@ -149,7 +150,8 @@ select {
         font-weight: normal;
         font-family: inherit;
         line-height: 1.5;
-        @include border-radius(4px);
+        border-radius: 4px;
+        @extend %smooth_animation;
 
         &:focus {
             outline: 0;
@@ -171,7 +173,7 @@ select {
         position: absolute;
         top: 3px;
         left: 0;
-        @include opacity(0);
+        opacity: 0;
 
         &:checked {
             + .checkbox {

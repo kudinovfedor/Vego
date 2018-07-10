@@ -3,7 +3,7 @@
     color: $headerFontColor;
     font-size: 12px;
     background: $headerBgColor none no-repeat center center;
-    @include background-size(cover);
+    background-size: cover;
 
     &::before,
     &::after {
@@ -18,7 +18,7 @@
         top: 0;
         bottom: 0;
         background-color: #f5f0e9;
-        @include opacity(.9);
+        opacity: .9;
     }
 
     &::after {
@@ -128,7 +128,7 @@
 
         &:hover {
             text-decoration: none;
-            @include opacity(.8);
+            opacity: .8;
         }
     }
 }

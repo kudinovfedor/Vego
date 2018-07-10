@@ -99,6 +99,35 @@
     }
 }
 
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.image {
+    &-left,
+    &-right,
+    &-center {
+        margin-bottom: 35px;
+    }
+
+    &-left {
+        float: left;
+        margin-right: 35px;
+    }
+
+    &-right {
+        float: right;
+        margin-left: 35px;
+    }
+
+    &-center {
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 //xs 544
 @media #{$mobile} {
     .hide {

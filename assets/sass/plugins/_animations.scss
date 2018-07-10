@@ -1,5 +1,5 @@
 @mixin smooth_animation {
-    @include transition(.2s);
+    transition: .2s;
 }
 
 %smooth_animation {

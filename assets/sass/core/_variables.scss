@@ -79,9 +79,9 @@ $linkFontColorActive: lighten($linkFontColor, 10%);
 // BUTTONS
 $buttonFontColor: #fff;
 $buttonFontColorActive: #fff;
-$buttonBgColor: $themeColorTwo;
-$buttonBgColorActive: darken($buttonBgColor, 10%);
-$buttonBorderColor: $themeColorTwo;
+$buttonBgColor: #ff9f00;
+$buttonBgColorActive: lighten($buttonBgColor, 5%);
+$buttonBorderColor: $buttonBgColor;
 $buttonOutlinedFirstColor: $themeColorTwo;
 $buttonOutlinedSecondColor: #fff;
 

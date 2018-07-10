@@ -36,8 +36,8 @@ Tags: one-column, two-columns, full-width-template, e-commerce
 @import "elements/responsive-titles";
 @import "elements/scroll-top";
 @import "elements/forms";
-//@import "elements/buttons";
-@import "elements/buttons-2";
+@import "elements/buttons";
+//@import "elements/buttons-2";
 //@import "elements/images";
 @import "elements/links";
 @import "elements/pagination";
@@ -55,14 +55,14 @@ Tags: one-column, two-columns, full-width-template, e-commerce
 @import "blocks/sidebar";
 @import "blocks/menu-second";
 
-@include selection() {
+::selection {
     background-color: $selectionBgColor;
     color: $selectionFontColor;
     text-shadow: none;
 }
 
 html {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
 }
 
 * {
@@ -73,7 +73,7 @@ html {
     &,
     &:before,
     &:after {
-        @include box-sizing(inherit);
+        box-sizing: inherit;
     }
 }
 
@@ -159,6 +159,15 @@ img {
         color: #ff9f00;
         margin-left: 15px;
         margin-right: 15px;
+    }
+
+    .kb_title {
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 160px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 }
 

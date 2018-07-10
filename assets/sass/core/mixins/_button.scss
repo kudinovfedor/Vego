@@ -2,16 +2,14 @@
     cursor: pointer;
     display: inline-block;
     vertical-align: middle;
-    border: 0;
-    border-radius: $borderRadius;
+    border: 1px solid transparent;
     background-color: $buttonBgColor;
     color: $buttonFontColor;
     text-transform: uppercase;
     text-align: center;
     font-family: inherit;
-    font-weight: 700;
-    @include box-shadow($shadow);
-    @include smooth_animation;
+    font-weight: bold;
+    @extend %smooth_animation;
 
     &.fa {
         font-family: 'Font Awesome 5 Pro';
@@ -20,12 +18,10 @@
     &:hover {
         color: $buttonFontColorActive;
         background-color: $buttonBgColorActive;
-        @include box-shadow(none);
     }
 
     &:active {
         background-color: $buttonBgColor;
-        @include box-shadow(none);
     }
 
     &:focus {

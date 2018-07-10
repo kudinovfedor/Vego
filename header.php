@@ -68,6 +68,15 @@
         </div>
     </header>
 
+    <div class="nav-mobile-header">
+        <button class="hamburger js-hamburger" type="button" tabindex="0">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+        <div class="logo"><?php get_default_logo_link(); ?></div>
+    </div>
+
     <?php /*
     <?php get_default_logo_link(); ?>
 

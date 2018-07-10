@@ -51,7 +51,7 @@
                             </div>
                             <div class="form-row form-columns">
                                 <div class="form-column">
-                                    <button class="btn btn-primary" type="submit">Отправить</button>
+                                    <button class="button-medium" type="submit">Отправить</button>
                                 </div>
                                 <div class="form-column">
                                     <label class="custom-checkbox">
