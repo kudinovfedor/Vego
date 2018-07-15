@@ -54,6 +54,23 @@ function projects_get_meta_box($meta_boxes)
                 'max_file_uploads' => 1,
                 'max_status' => false,
             ),
+            array(
+                'id' => $prefix . 'latitude',
+                'type' => 'text',
+                'name' => esc_html__('Широта', 'brainworks'),
+                'placeholder' => esc_html__('Latitude', 'brainworks'),
+            ),
+            array(
+                'id' => $prefix . 'longitude',
+                'type' => 'text',
+                'name' => esc_html__('Долгота', 'brainworks'),
+                'placeholder' => esc_html__('Longitude', 'brainworks'),
+            ),
+            array(
+                'id' => $prefix . 'gallery',
+                'type' => 'image_advanced',
+                'name' => esc_html__( 'Галерея', 'brainworks' ),
+            ),
         ),
     );
 

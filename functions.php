@@ -23,6 +23,10 @@ require_once locate_template('/inc/feedback.php');
 require_once locate_template('/inc/shortcodes.php');
 require_once locate_template('/inc/meta-boxes.php');
 
+require_once('inc/SnazzyMaps.php');
+require_once('inc/GoogleMaps.php');
+require_once('inc/GoogleMapsCustomizer.php');
+
 require_once('inc/pagination.php');
 require_once('inc/post-type-info.php');
 require_once('inc/post-type-project.php');

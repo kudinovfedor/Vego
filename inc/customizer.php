@@ -98,6 +98,10 @@ function bw_customize_register($wp_customize)
         'transport' => 'postMessage',
     ));
 
+    $wp_customize->selective_refresh->add_partial('bw_scroll_top_display', array(
+        'selector' => '.js-scroll-top',
+    ));
+
     $wp_customize->add_control('bw_scroll_top_display', array(
         'label'       => __('Display', 'brainworks'),
         'description' => esc_html__('Show/Hide scroll top', 'brainworks'),
@@ -450,6 +454,10 @@ function bw_customize_register($wp_customize)
     $wp_customize->add_setting('bw_social_youtube', array('default' => ''));
     $wp_customize->add_setting('bw_social_odnoklassniki', array('default' => ''));
 
+    $wp_customize->selective_refresh->add_partial('bw_social_vk', array(
+        'selector' => '.social',
+    ));
+
     $wp_customize->add_control('bw_social_vk', array(
         'label'    => __('Vk', 'brainworks'),
         'section'  => 'bw_social',
@@ -517,6 +525,10 @@ function bw_customize_register($wp_customize)
     $wp_customize->add_setting('bw_phone2', array());
     $wp_customize->add_setting('bw_phone3', array());
     $wp_customize->add_setting('bw_phone4', array());
+
+    $wp_customize->selective_refresh->add_partial('bw_phone1', array(
+        'selector' => '.phone',
+    ));
 
     $wp_customize->add_control('bw_phone1', array(
         'label'    => __('Phone №1', 'brainworks'),

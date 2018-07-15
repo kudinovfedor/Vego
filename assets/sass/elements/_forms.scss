@@ -157,6 +157,10 @@ select {
     }
 }
 
+textarea.form-field {
+    display: block;
+}
+
 .custom-checkbox {
     cursor: pointer;
     position: relative;

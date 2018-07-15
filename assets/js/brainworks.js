@@ -15,8 +15,12 @@
         html.removeClass('no-js').addClass('js');
 
         // Stick Footer
-        var footerHeight = $('.footer').outerHeight() + 0;
-        $('.wrapper').css('padding-bottom', footerHeight + 'px');
+        var footer = $('.footer'), wrapper = $('.wrapper');
+        stickyFooter(wrapper, footer);
+
+        $(window).on('resize', function () {
+            stickyFooter(wrapper, footer);
+        });
 
         // Scroll Top
         scrollTop('.js-scroll-top');
@@ -37,6 +41,15 @@
         buyOneClick('.one-click', '[data-field-id="field7"]', 'h1.page-name');
 
     });
+
+    /**
+     *
+     * @param wrapper
+     * @param footer
+     */
+    function stickyFooter(wrapper, footer) {
+        wrapper.css('paddingBottom', (footer.outerHeight() + 0) + 'px');
+    }
 
     /**
      * Hamburger Menu
