@@ -14,7 +14,7 @@
         'longitude' => esc_html(rwmb_meta('project-longitude')),
         'gallery' => rwmb_meta('project-gallery'),
     );
-    dump($project);
+    //dump($project);
     ?>
 
     <?php get_template_part('template-parts/block', 'specification'); ?>

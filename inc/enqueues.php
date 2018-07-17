@@ -19,6 +19,10 @@ function bw_enqueues()
         null, true);
     wp_enqueue_script('modernizr');
 
+    wp_register_script('slick-js', get_template_directory_uri() . '/assets/js/slick.min.js', array(),
+        null, true);
+    wp_enqueue_script('slick-js');
+
     if ( ! WP_DEBUG) {
         wp_deregister_script('jquery');
         wp_register_script('jquery', get_template_directory_uri() . '/assets/js/jquery-1.12.4.min.js', array(), null,

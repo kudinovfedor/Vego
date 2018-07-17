@@ -948,3 +948,91 @@
         }
     }
 }
+
+.gallery {
+    padding: 30px 0;
+    position: relative;
+
+    *:focus {
+        outline: 0;
+    }
+
+    &-count {
+        position: absolute;
+        top: 35px;
+        right: 35px;
+        z-index: 1;
+        color: #ff9f00;
+        font-size: 36px;
+        font-weight: bold;
+    }
+
+    &-current,
+    &-total {
+        display: inline-block;
+        line-height: 50px;
+    }
+
+    &-current {
+        color: #fff;
+        font-size: 60px;
+    }
+
+    &-preview {
+        background-color: #fbf9f6;
+        box-shadow: 0 8px 30px rgba(#2b1b00, .45);
+    }
+
+    &-thumbnail {
+        position: relative;
+
+        .image {
+            display: block;
+            width: 160px;
+            height: 90px;
+            margin: 30px auto;
+            border: 3px solid #fff;
+            border-radius: 4px;
+            background: #fbf9f6 none no-repeat center center;
+            background-size: cover;
+            box-shadow: 0 8px 30px rgba(#2b1b00, .3);
+        }
+
+        .slick-current & {
+            top: 10px;
+
+            .image {
+                border-color: #ff9f00;
+            }
+        }
+    }
+
+    &-nav {
+        position: relative;
+        top: -60px;
+    }
+
+    &-arrows {
+        position: relative;
+        height: 40px;
+
+        .slick-arrow {
+            position: absolute;
+            top: 0;
+            border: 0;
+            background-color: transparent;
+            color: #ff9f00;
+            font-size: 30px;
+            line-height: 1;
+            padding: 5px 10px;
+        }
+
+        .slick-prev {
+            left: 15px;
+        }
+
+        .slick-next {
+            right: 15px;
+        }
+    }
+}
