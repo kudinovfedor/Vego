@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="page-wrapper container">
+<div class="page-wrapper">
 
     <?php
     $args = array(
@@ -11,7 +11,7 @@
     $query = new WP_Query($args);
 
     if ($query->have_posts()) { ?>
-        <div class="info">
+        <div class="info container z-index-2">
             <ul class="info-list">
                 <?php while ($query->have_posts()) {
                     $query->the_post();
@@ -21,27 +21,36 @@
                     if (function_exists('rwmb_meta')) {
                         $info['city'] = esc_html(rwmb_meta('info-city'));
                         $info['price'] = esc_html(number_format(rwmb_meta('info-price'), 0, '.', ' '));
-                        $info['labels'] = rwmb_meta('info-labels');
-
-                        $labels = array(
-                            'commissioned' => 'Введен в эксплуатацию',
-                            'finished' => 'Завершен',
-                            'credit' => 'Кредит',
-                            'last-houses' => 'Последние дома',
-                            'installments' => 'Рассрочка',
+                        $info['labels'] = array(
+                            'blue' => rwmb_meta('info-label-blue'),
+                            'green' => rwmb_meta('info-label-green'),
+                            'orange' => rwmb_meta('info-label-orange'),
+                            'purple' => rwmb_meta('info-label-purple'),
+                            'red' => rwmb_meta('info-label-red'),
                         );
                     }
-                    //dump($info);
+
+                    $isLabelsNotEmpty = false;
+
+                    foreach ($info['labels'] as $item) {
+                        if (!empty($item)) {
+                            $isLabelsNotEmpty = true;
+                        }
+                    }
+
                     $thumbnail = has_post_thumbnail()
                         ? sprintf("url('%s')", esc_url(get_the_post_thumbnail_url(null, 'post-thumbnail')))
                         : 'none';
                     ?>
                     <li id="info-<?php the_ID(); ?>" <?php post_class('info-item'); ?>>
                         <div class="info-box" style="background-image: <?php echo $thumbnail; ?>;">
-                            <?php if (!empty($info['labels'])) { ?>
+                            <?php if ($isLabelsNotEmpty) { ?>
                                 <div class="info-labels text-right text-uppercase text-bold">
-                                    <?php foreach ($info['labels'] as $label) { ?>
-                                        <span class="label label-<?php echo esc_attr($label); ?>"><?php echo esc_html($labels[$label]); ?></span>
+                                    <?php foreach ($info['labels'] as $key => $label) {
+                                        if (empty($label)) {
+                                            continue;
+                                        } ?>
+                                        <span class="label label-<?php echo esc_attr($key); ?>"><?php echo esc_html($label); ?></span>
                                         <br>
                                     <?php } ?>
                                 </div>
@@ -72,31 +81,54 @@
         </div>
     <?php } ?>
 
-    <hr>
+    <div class="project-map">
+        <?php
+        $args = array(
+            'post_type' => 'projects',
+            'posts_per_page' => -1
+        );
 
-    <div class="maps"></div>
+        $query = new WP_Query($args);
 
-    <hr>
-
-    <div>
-        <p>Живи там где <br>хочешь ты</p>
-        <p>Начинать свой день с чашки свежесваренного кофе у панорамного окна — бесценно. Любоваться окружающей
-            природой,
-            дышать свежим воздухом и гулять по утопающему в зелени парку. Выбери свое комфортное жилье и живи там где
-            хочешь
-            ты.</p>
+        if ($query->have_posts()) {
+            $projects = [];
+            while ($query->have_posts()) {
+                $query->the_post();
+                $projects[] = array(
+                    'latitude' => esc_html(rwmb_meta('project-latitude')),
+                    'longitude' => esc_html(rwmb_meta('project-longitude')),
+                );
+            }
+            $projects = array_filter($projects, function ($value) {
+                return !empty($value['latitude']) && !empty($value['longitude']);
+            });
+            //dump($projects);
+        } ?>
+        <?php google_map(false); ?>
     </div>
 
-    <hr>
+    <div class="container">
+        <div>
+            <p>Живи там где <br>хочешь ты</p>
+            <p>Начинать свой день с чашки свежесваренного кофе у панорамного окна — бесценно. Любоваться окружающей
+                природой,
+                дышать свежим воздухом и гулять по утопающему в зелени парку. Выбери свое комфортное жилье и живи там
+                где
+                хочешь
+                ты.</p>
+        </div>
 
-    <ul>
-        <li>﻿3500 м<sup>2</sup><br>Жилья построено</li>
-        <li>﻿6 комплексов<br>Введено в эксплуатацию</li>
-        <li>32<br>Семьи заселилось</li>
-        <li>﻿3500 м<sup>2</sup><br>Жилья построено</li>
-    </ul>
+        <hr>
 
-    <?php get_template_part('loops/content-2', get_post_format()); ?>
+        <ul>
+            <li>﻿3500 м<sup>2</sup><br>Жилья построено</li>
+            <li>﻿6 комплексов<br>Введено в эксплуатацию</li>
+            <li>32<br>Семьи заселилось</li>
+            <li>﻿3500 м<sup>2</sup><br>Жилья построено</li>
+        </ul>
+
+        <?php get_template_part('loops/content-2', get_post_format()); ?>
+    </div>
 
 </div>
 

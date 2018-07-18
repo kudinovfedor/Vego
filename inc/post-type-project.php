@@ -67,6 +67,12 @@ function projects_get_meta_box($meta_boxes)
                 'placeholder' => esc_html__('Longitude', 'brainworks'),
             ),
             array(
+                'id' => $prefix . 'zoom',
+                'type' => 'text',
+                'name' => esc_html__('Зум', 'brainworks'),
+                'placeholder' => esc_html__('10', 'brainworks'),
+            ),
+            array(
                 'id' => $prefix . 'gallery',
                 'type' => 'image_advanced',
                 'name' => esc_html__('Галерея', 'brainworks'),
@@ -78,20 +84,20 @@ function projects_get_meta_box($meta_boxes)
 
     for ($i = 1; $i < 17; $i++) {
         $spec_fields[] = array(
-            'id' => 'heading_' . $i,
+            'id' => 'heading-' . $i,
             'type' => 'heading',
             'name' => 'Спецификаия №' . $i,
         );
 
         $spec_fields[] = array(
-            'id' => $prefix . 'svg-icon_' . $i,
+            'id' => $prefix . 'spec-svg-icon-' . $i,
             'type' => 'text',
             'name' => esc_html__('SVG иконка', 'brainworks'),
             'desc' => 'SVG icons list (<b>bricks, facade, doors, windows, foundation, roof, gates, terrace</b>)',
         );
 
         $spec_fields[] = array(
-            'id' => $prefix . 'image-icon_' . $i,
+            'id' => $prefix . 'spec-image-icon-' . $i,
             'type' => 'image_advanced',
             'max_file_uploads' => 1,
             'max_status' => false,
@@ -99,7 +105,7 @@ function projects_get_meta_box($meta_boxes)
         );
 
         $spec_fields[] = array(
-            'id' => $prefix . 'text_' . $i,
+            'id' => $prefix . 'spec-text-' . $i,
             'type' => 'text',
             'name' => esc_html__('Текст', 'brainworks'),
         );
@@ -125,7 +131,7 @@ function projects_get_meta_box($meta_boxes)
         );
 
         $philosophy_fields[] = array(
-            'id' => $prefix . 'image_' . $i,
+            'id' => $prefix . 'philosophy-image-' . $i,
             'type' => 'image_advanced',
             'name' => esc_html__('Изображение', 'brainworks'),
             'max_file_uploads' => 1,
@@ -133,13 +139,13 @@ function projects_get_meta_box($meta_boxes)
         );
 
         $philosophy_fields[] = array(
-            'id' => $prefix . 'title_' . $i,
+            'id' => $prefix . 'philosophy-title-' . $i,
             'type' => 'text',
             'name' => esc_html__('Название', 'brainworks'),
         );
 
         $philosophy_fields[] = array(
-            'id' => $prefix . 'desc_' . $i,
+            'id' => $prefix . 'philosophy-desc-' . $i,
             'type' => 'textarea',
             'name' => esc_html__('Описание', 'brainworks'),
         );
@@ -164,18 +170,31 @@ function projects_get_meta_box($meta_boxes)
         'autosave' => true,
         'fields' => array(
             array(
-                'id' => $prefix . 'title',
-                'type' => 'text',
+                'id' => $prefix . 'visit-image',
+                'type' => 'image_advanced',
+                'name' => esc_html__('Фон', 'brainworks'),
+                'max_file_uploads' => 1,
+                'max_status' => false,
+            ),
+            array(
+                'id' => $prefix . 'visit-title',
+                'type' => 'textarea',
                 'name' => esc_html__('Название', 'brainworks'),
                 'placeholder' => 'Побывайте в «Балтик Хаус», чтобы:',
             ),
             array(
-                'id' => $prefix . 'list',
+                'id' => $prefix . 'visit-list',
                 'type' => 'text',
                 'name' => esc_html__( 'Список', 'metabox-online-generator' ),
+                'size' => 75,
                 'clone' => true,
                 'sort_clone' => true,
                 'add_button' => esc_html__( 'Добавить еще', 'metabox-online-generator' ),
+            ),
+            array(
+                'id' => $prefix . 'visit-form',
+                'name' => esc_html__( 'Form shortcode', 'metabox-online-generator' ),
+                'type' => 'text',
             ),
 
         ),

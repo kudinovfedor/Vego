@@ -3489,6 +3489,8 @@ img { display: inline-block; vertical-align: middle; max-width: 100%; height: au
 
 @media only screen and (min-width: 990px) { .container { width: 970px; } }
 
+.z-index-2 { z-index: 2; }
+
 .kama_breadcrumbs { padding: 10px 0; font-size: 12px; }
 
 .kama_breadcrumbs .kb_sep { color: #ff9f00; margin-left: 15px; margin-right: 15px; }
@@ -3571,25 +3573,25 @@ img { display: inline-block; vertical-align: middle; max-width: 100%; height: au
 
 .label ~ .label { margin-top: 10px; }
 
-.label-commissioned { background-color: #337f00; }
+.label-green { background-color: #337f00; }
 
-.label-commissioned::before { border-color: #337f00; border-left-color: transparent; }
+.label-green::before { border-color: #337f00; border-left-color: transparent; }
 
-.label-finished { background-color: #ff9f00; }
+.label-orange { background-color: #ff9f00; }
 
-.label-finished::before { border-color: #ff9f00; border-left-color: transparent; }
+.label-orange::before { border-color: #ff9f00; border-left-color: transparent; }
 
-.label-credit { background-color: #6c00c7; }
+.label-purple { background-color: #6c00c7; }
 
-.label-credit::before { border-color: #6c00c7; border-left-color: transparent; }
+.label-purple::before { border-color: #6c00c7; border-left-color: transparent; }
 
-.label-last-houses { background-color: #b50000; }
+.label-red { background-color: #b50000; }
 
-.label-last-houses::before { border-color: #b50000; border-left-color: transparent; }
+.label-red::before { border-color: #b50000; border-left-color: transparent; }
 
-.label-installments { background-color: #306ce5; }
+.label-blue { background-color: #306ce5; }
 
-.label-installments::before { border-color: #306ce5; border-left-color: transparent; }
+.label-blue::before { border-color: #306ce5; border-left-color: transparent; }
 
 .blog-latest { margin-top: 70px; }
 
@@ -3713,6 +3715,16 @@ img { display: inline-block; vertical-align: middle; max-width: 100%; height: au
 
 .project-link { position: absolute; left: 0; bottom: 0; }
 
+.project-map { margin-top: -240px; margin-bottom: -170px; position: relative; height: 860px; }
+
+.project-map::before, .project-map::after { content: ''; position: absolute; left: 0; right: 0; z-index: 1; pointer-events: none; }
+
+.project-map:before { height: 60%; top: 0; background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(transparent)); background-image: linear-gradient(to bottom, #fff, transparent); }
+
+.project-map::after { height: 40%; bottom: 0; background-image: -webkit-gradient(linear, left bottom, left top, from(#fff), to(transparent)); background-image: linear-gradient(to top, #fff, transparent); }
+
+.project-map .google-map { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+
 .specification { padding: 60px 0 30px; }
 
 .specification-list { font-size: 0; }
@@ -3721,7 +3733,9 @@ img { display: inline-block; vertical-align: middle; max-width: 100%; height: au
 
 .specification-icon { display: block; width: 95px; height: 95px; position: relative; border: 3px solid #fff; border-radius: 50%; background-color: #f5f0e9; -webkit-box-shadow: 0 8px 15px rgba(51, 30, 0, 0.07); box-shadow: 0 8px 15px rgba(51, 30, 0, 0.07); margin: 0 auto 20px; }
 
-.specification-icon .svg-icon { position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto; }
+.specification-icon img, .specification-icon .svg-icon { position: absolute; top: 0; right: 0; bottom: 0; left: 0; margin: auto; }
+
+.specification-icon img { max-width: 35px; max-height: 35px; }
 
 .philosophy { padding: 30px 0; }
 

@@ -205,7 +205,7 @@
         margin-top: 10px;
     }
 
-    &-commissioned {
+    &-green {
         background-color: #337f00;
 
         &::before {
@@ -214,7 +214,7 @@
         }
     }
 
-    &-finished {
+    &-orange {
         background-color: #ff9f00;
 
         &::before {
@@ -223,7 +223,7 @@
         }
     }
 
-    &-credit {
+    &-purple {
         background-color: #6c00c7;
 
         &::before {
@@ -232,7 +232,7 @@
         }
     }
 
-    &-last-houses {
+    &-red {
         background-color: #b50000;
 
         &::before {
@@ -241,7 +241,7 @@
         }
     }
 
-    &-installments {
+    &-blue {
         background-color: #306ce5;
 
         &::before {
@@ -626,6 +626,43 @@
         left: 0;
         bottom: 0;
     }
+
+    &-map {
+        margin-top: -240px;
+        margin-bottom: -170px;
+        position: relative;
+        height: 860px;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        &:before {
+            height: 60%;
+            top: 0;
+            background-image: linear-gradient(to bottom, #fff, transparent);
+        }
+
+        &::after {
+            height: 40%;
+            bottom: 0;
+            background-image: linear-gradient(to top, #fff, transparent);
+        }
+
+        .google-map {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    }
 }
 
 .specification {
@@ -658,6 +695,7 @@
         box-shadow: 0 8px 15px rgba(#331e00, .07);
         margin: 0 auto 20px;
 
+        img,
         .svg-icon {
             position: absolute;
             top: 0;
@@ -665,6 +703,11 @@
             bottom: 0;
             left: 0;
             margin: auto;
+        }
+
+        img {
+            max-width: 35px;
+            max-height: 35px;
         }
     }
 }

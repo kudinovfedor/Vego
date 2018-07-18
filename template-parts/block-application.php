@@ -1,39 +1,57 @@
-<!-- Start Application -->
-<?php $bg = esc_attr(esc_url(get_template_directory_uri() . '/assets/img/application-bg.jpg')); ?>
-<div class="application" style="background-image: url('<?php echo $bg; ?>')">
-    <div class="container">
-        <div class="application-content">
-            <div class="application-action text-bold">
-                Побывайте в <span class="highlight">«Балтик <br> Хаус»</span>, чтобы:
+<?php
+if (function_exists('rwmb_meta')) {
+    $visit = array(
+        'title' => rwmb_meta('project-visit-title'),
+        'list' => rwmb_meta('project-visit-list'),
+        'image' => rwmb_meta('project-visit-image'),
+        'form' => rwmb_meta('project-visit-form'),
+    );
+    $image = reset($visit['image']);
+    $bg = !empty($image) ? esc_url($image['full_url']) : esc_url(get_template_directory_uri() . '/assets/img/application-bg.jpg');
+    ?>
+    <!-- Start Application -->
+    <div class="application" style="background-image: url('<?php echo $bg; ?>')">
+        <div class="container">
+            <div class="application-content">
+                <?php if (!empty($visit['title'])) { ?>
+                    <div class="application-action text-bold">
+                        <?php echo strip_tags($visit['title'], '<br><span>'); ?>
+                    </div>
+                <?php }
+                if (!empty($visit['list'])) { ?>
+                    <ul class="application-list">
+                        <?php foreach ($visit['list'] as $item) { ?>
+                            <li><?php echo esc_html($item); ?></li>
+                        <?php } ?>
+                    </ul>
+                <?php } ?>
             </div>
-            <ul class="application-list">
-                <li>Прогуляться по территории и «вживую» оценить коттеджи</li>
-                <li>Посмотреть коттеджи с роскошными террасами</li>
-                <li>Ощутить внутреннее пространство и и продуманные планировки</li>
-                <li>Ознакомиться с архитектурой домов, и инфраструктурой возле двора</li>
-            </ul>
-        </div>
-        <div class="application-form">
-            <div class="feedback-box">
-                <div class="feedback-headline text-center text-uppercase">Заявка на просмотр</div>
-                <form action="./" method="post" class="feedback-form">
-                    <div class="form-row">
-                        <input class="form-field" type="text" name="name" placeholder="Введите Ваше имя">
-                    </div>
-                    <div class="form-row">
-                        <input class="form-field" type="tel" name="tel" placeholder="Введите номер телефона">
-                    </div>
-                    <div class="form-row">
-                        <label class="custom-checkbox">
-                            <input type="checkbox" name="agree" value="yes" checked="">
-                            <span class="checkbox"></span>
-                            Я согласен на обработку моих персональных данных
-                        </label>
-                    </div>
-                    <button class="button-medium" type="submit">Отправить</button>
-                </form>
+            <div class="application-form">
+                <div class="feedback-box">
+                    <div class="feedback-headline text-center text-uppercase">Заявка на просмотр</div>
+                    <?php if (empty($visit['form'])) { ?>
+                        <form action="./" method="post" class="feedback-form">
+                            <div class="form-row">
+                                <input class="form-field" type="text" name="name" placeholder="Введите Ваше имя">
+                            </div>
+                            <div class="form-row">
+                                <input class="form-field" type="tel" name="tel" placeholder="Введите номер телефона">
+                            </div>
+                            <div class="form-row">
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="agree" value="yes" checked="">
+                                    <span class="checkbox"></span>
+                                    Я согласен на обработку моих персональных данных
+                                </label>
+                            </div>
+                            <button class="button-medium" type="submit">Отправить</button>
+                        </form>
+                    <?php } else {
+                        echo do_shortcode($visit['form']);
+                    } ?>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- End Application -->
+    <!-- End Application -->
+<?php } ?>

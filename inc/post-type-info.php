@@ -23,18 +23,29 @@ function fk_info_get_meta_box($meta_boxes)
                 'name' => esc_html__('Price', 'brainworks'),
             ),
             array(
-                'id' => $prefix . 'labels',
-                'name' => esc_html__( 'Labels', 'brainworks' ),
-                'type' => 'select_advanced',
-                'placeholder' => esc_html__( 'Select a Label', 'brainworks' ),
-                'options' => array(
-                    'commissioned' => 'Введен в эксплуатацию',
-                    'finished' => 'Завершен',
-                    'credit' => 'Кредит',
-                    'last-houses' => 'Последние дома',
-                    'installments' => 'Рассрочка',
-                ),
-                'multiple' => true,
+                'id' => $prefix . 'label-blue',
+                'type' => 'text',
+                'name' => esc_html__('Label (синий)', 'brainworks'),
+            ),
+            array(
+                'id' => $prefix . 'label-green',
+                'type' => 'text',
+                'name' => esc_html__('Label (зеленый)', 'brainworks'),
+            ),
+            array(
+                'id' => $prefix . 'label-orange',
+                'type' => 'text',
+                'name' => esc_html__('Label (оранжевый)', 'brainworks'),
+            ),
+            array(
+                'id' => $prefix . 'label-red',
+                'type' => 'text',
+                'name' => esc_html__('Label (красный)', 'brainworks'),
+            ),
+            array(
+                'id' => $prefix . 'label-purple',
+                'type' => 'text',
+                'name' => esc_html__('Label (фиолетовый)', 'brainworks'),
             ),
         ),
     );
