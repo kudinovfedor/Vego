@@ -200,5 +200,9 @@ img {
     display: none;
 }
 
+:focus {
+    outline: 0;
+}
+
 @import "pages/front-page";
 @import "responsive";

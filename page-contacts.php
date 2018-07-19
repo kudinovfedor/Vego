@@ -10,9 +10,9 @@
 <?php if (have_posts()) { ?>
     <div class="contacts">
         <?php while (have_posts()) : the_post(); ?>
-            <span class="contacts-map">
+            <div class="contacts-map">
                 <?php google_map(false); ?>
-            </span>
+            </div>
             <div class="container contacts-box">
                 <article id="page-<?php the_ID(); ?>" <?php post_class('section-content article'); ?>>
                     <div class="text-center">
@@ -21,36 +21,45 @@
                         } ?>
                         <h1 class="text-uppercase section-headline"><?php the_title(); ?></h1>
                     </div>
-
-                    <div class="box-group">
-                        <i class="fas fa-map-marker-alt box-icon" aria-hidden="true"></i>
-                        <div class="box-head text-uppercase">Адрес</div>
-                        <div class="box-body">
-                            г. Киев, ул. Уличная 17, офис 100
-                            <br>
-                            Пн–Сб: 09<sup>00</sup> – 19<sup>00</sup>
+                    <?php
+                    $address = get_theme_mod('bw_additional_address');
+                    $time_work = get_theme_mod('bw_additional_time_work');
+                    if (!empty($address) || !empty($time_work)) { ?>
+                        <div class="box-group">
+                            <i class="fas fa-map-marker-alt box-icon" aria-hidden="true"></i>
+                            <div class="box-head text-uppercase">Адрес</div>
+                            <div class="box-body">
+                                <?php echo strip_tags($address, '<br>'); ?>
+                                <br>
+                                <?php echo strip_tags($time_work, '<sup>'); ?>
+                            </div>
                         </div>
-                    </div>
+                    <?php } ?>
                     <div class="box-group">
                         <i class="fas fa-map-marker-alt box-icon" aria-hidden="true"></i>
                         <div class="box-head text-uppercase">Контактная информация</div>
-                        <p class="box-body">
-                            <a href="tel:+380503139223">+38 (050) 313 92 23</a>
-                            <br>
-                            <a href="tel:+380632123482">+38 (063) 212-34-82</a>
-                            <br>
-                            <a href="mailto:sales@vego.com.ua">sales@vego.com.ua</a>
-                        </p>
+                        <div class="box-body mb-20">
+                            <?php if (has_phones()) {
+                                foreach (get_phones() as $key => $phone) { ?>
+                                    <a href="tel:<?php echo esc_attr(get_phone_number($phone)); ?>">
+                                        <?php echo esc_html($phone); ?>
+                                    </a>
+                                    <br>
+                                <?php }
+                            } ?>
+                            <?php if ($email = get_theme_mod('bw_additional_email')) { ?>
+                                <a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a>
+                            <?php } ?>
+                        </div>
                     </div>
-
                     <?php the_content(); ?>
-
                     <div class="feedback-box">
                         <div class="feedback-headline text-center text-uppercase">Обратная связь</div>
                         <form action="./" method="post" class="feedback-form">
                             <div class="form-row form-columns">
                                 <div class="form-column">
-                                    <input class="form-field" type="text" name="name" placeholder="Введите Ваше имя">
+                                    <input class="form-field" type="text" name="name"
+                                           placeholder="Введите Ваше имя">
                                 </div>
                                 <div class="form-column">
                                     <input class="form-field" type="tel" name="tel"

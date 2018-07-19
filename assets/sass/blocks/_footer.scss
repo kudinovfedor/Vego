@@ -9,6 +9,10 @@
 
     &-main {
         padding: 50px 0 15px;
+
+        .home & {
+            padding-top: 100px;
+        }
     }
 
     .phone {

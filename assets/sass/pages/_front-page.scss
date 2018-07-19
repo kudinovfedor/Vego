@@ -180,6 +180,34 @@
     }
 }
 
+.vego {
+    &-list {
+        padding: 50px 0;
+        color: #333;
+        font-size: 16px;
+        font-weight: bold;
+
+        .highlight {
+            color: #ff9f00;
+            font-size: 40px;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        small {
+            font-size: percentage(24/40);
+        }
+
+        sup {
+            font-size: 60%;
+        }
+    }
+
+    &-item {
+        margin-bottom: 20px;
+    }
+}
+
 .label {
     position: relative;
     display: inline-block;
@@ -1063,11 +1091,7 @@
             position: absolute;
             top: 0;
             border: 0;
-            background-color: transparent;
-            color: #ff9f00;
             font-size: 30px;
-            line-height: 1;
-            padding: 5px 10px;
         }
 
         .slick-prev {
@@ -1076,6 +1100,82 @@
 
         .slick-next {
             right: 15px;
+        }
+    }
+}
+
+.slick-arrow {
+    border: 0;
+    background-color: transparent;
+    color: #ff9f00;
+    line-height: 1;
+    padding: 5px 10px;
+}
+
+.press-centre {
+    background-color: #fbf9f6;
+    box-shadow: 0 8px 30px  rgba(#2b1b00, .15);
+    margin-bottom: -40px;
+    position: relative;
+    z-index: 2;
+    min-height: 190px;
+
+    &-left {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 310px;
+        padding: 35px;
+        background-color: #fff;
+    }
+
+    &-right {
+        position: relative;
+        padding: 80px 50px 30px;
+        margin-left: 310px;
+    }
+
+    &-title {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    &-desc {
+        color: #999;
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
+    &-btn {
+        position: absolute;
+        left: 35px;
+        bottom: 40px;
+    }
+
+    .slick-arrow {
+        position: absolute;
+        left: 0;
+        top: -50px;
+        font-size: 20px;
+    }
+
+    .slick-next {
+        left: 40px;
+    }
+
+    .blog {
+        &-list {
+            margin: 0;
+            position: relative;
+        }
+
+        &-item {
+            margin-bottom: 0;
+        }
+
+        &-thumbnail {
+            box-shadow: none;
         }
     }
 }

@@ -193,6 +193,20 @@
     }
 }
 
+@media only screen and (max-width: 544px) {
+    .vego {
+        &-list {
+            padding: 20px 0;
+            text-align: center;
+            font-size: 15px;
+
+            .highlight {
+                font-size: 35px;
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: 480px) {
     .section {
         &-headline {

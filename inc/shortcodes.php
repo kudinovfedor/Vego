@@ -104,7 +104,9 @@ if (!function_exists('bw_phone_shortcode')) {
 
         // Attributes
         $atts = shortcode_atts(
-            array(),
+            array(
+                'count' => 5
+            ),
             $atts
         );
 
@@ -113,7 +115,10 @@ if (!function_exists('bw_phone_shortcode')) {
         if (has_phones()) {
             $items = '';
 
-            foreach (get_phones() as $phone) {
+            foreach (get_phones() as $key => $phone) {
+                if ($key > $atts['count'] - 1) {
+                    break;
+                }
                 $items .= sprintf(
                     '<li class="phone-item">%s</li>',
                     sprintf(

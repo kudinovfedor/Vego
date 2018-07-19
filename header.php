@@ -26,7 +26,8 @@
         <meta name="msapplication-TileImage" content="<?php echo FAVICON . '/ms-icon-144x144.png'; ?>">
         <meta name="theme-color" content="#ffffff">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-title" content="<?php bloginfo('name'); ?> - <?php bloginfo('description'); ?>">
+        <meta name="apple-mobile-web-app-title"
+              content="<?php bloginfo('name'); ?> - <?php bloginfo('description'); ?>">
     <?php } ?>
     <?php wp_head(); ?>
 </head>
@@ -57,7 +58,10 @@
                 <div class="col-md-4 header-phone">
                     <?php if (has_phones()) { ?>
                         <ul class="phone">
-                            <?php foreach (get_phones() as $phone) { ?>
+                            <?php foreach (get_phones() as $key => $phone) {
+                                if ($key > 0) {
+                                    break;
+                                } ?>
                                 <li class="phone-item">
                                     <a href="tel:<?php echo esc_attr(get_phone_number($phone)); ?>"
                                        class="phone-number">
@@ -66,8 +70,10 @@
                                 </li>
                             <?php } ?>
                         </ul>
+                    <?php }
+                    if ($time_work = get_theme_mod('bw_additional_time_work')) { ?>
+                        <span class="header-time-work d-block"><?php echo strip_tags($time_work, '<sup>'); ?></span>
                     <?php } ?>
-                    <span class="header-time-work d-block">Пн-Сб: 09<sup>00</sup> - 19<sup>00</sup></span>
                 </div>
                 <div class="col-md-4 text-center header-logo">
                     <div class="logo text-uppercase">

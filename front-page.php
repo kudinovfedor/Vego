@@ -107,27 +107,102 @@
         <?php google_map(false); ?>
     </div>
 
-    <div class="container">
-        <div>
-            <p>Живи там где <br>хочешь ты</p>
-            <p>Начинать свой день с чашки свежесваренного кофе у панорамного окна — бесценно. Любоваться окружающей
-                природой,
-                дышать свежим воздухом и гулять по утопающему в зелени парку. Выбери свое комфортное жилье и живи там
-                где
-                хочешь
-                ты.</p>
+
+    <?php
+    $title = get_theme_mod('bw_vego_live_title');
+    $desc = get_theme_mod('bw_vego_live_desc');
+    if (!empty($title) || !empty($desc)) { ?>
+        <div class="">
+            <div class="container z-index-2">
+                <div class="row">
+                    <?php if (!empty($title)) { ?>
+                        <div class="col-md-6"><?php echo $title; ?></div>
+                    <?php }
+                    if (!empty($desc)) { ?>
+                        <div class="col-md-6"><?php echo $desc; ?></div>
+                    <?php } ?>
+                </div>
+            </div>
+            <?php ?>
         </div>
+    <?php } ?>
 
-        <hr>
+    <?php $vego_list = array(
+        array(
+            'value' => get_theme_mod('bw_vego_list_item-value-1'),
+            'desc' => get_theme_mod('bw_vego_list_item-desc-1'),
+        ),
+        array(
+            'value' => get_theme_mod('bw_vego_list_item-value-2'),
+            'desc' => get_theme_mod('bw_vego_list_item-desc-2'),
+        ),
+        array(
+            'value' => get_theme_mod('bw_vego_list_item-value-3'),
+            'desc' => get_theme_mod('bw_vego_list_item-desc-3'),
+        ),
+        array(
+            'value' => get_theme_mod('bw_vego_list_item-value-4'),
+            'desc' => get_theme_mod('bw_vego_list_item-desc-4'),
+        ),
+    );
+    $vego_list = array_filter($vego_list, function ($item) {
+        return !empty($item['value']) && !empty($item['desc']);
+    });
+    if (!empty($vego_list)) { ?>
+        <div class="container z-index-2">
+            <div class="row vego-list">
+                <?php foreach ($vego_list as $item) { ?>
+                    <div class="col-sm-6 col-md-3 vego-item">
+                        <div class="highlight"><?php echo strip_tags($item['value'], '<small><sup>'); ?></div>
+                        <?php echo esc_html($item['desc']); ?>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
+    <?php } ?>
 
-        <ul>
-            <li>﻿3500 м<sup>2</sup><br>Жилья построено</li>
-            <li>﻿6 комплексов<br>Введено в эксплуатацию</li>
-            <li>32<br>Семьи заселилось</li>
-            <li>﻿3500 м<sup>2</sup><br>Жилья построено</li>
-        </ul>
-
-        <?php get_template_part('loops/content-2', get_post_format()); ?>
+    <div class="container">
+        <div class="press-centre">
+            <div class="press-centre-left">
+                <h3 class="press-centre-title text-uppercase">Пресс-центр</h3>
+                <p class="press-centre-desc">Новости и акции компании</p>
+                <a href="" class="button-medium press-centre-btn">Все новости</a>
+            </div>
+            <div class="press-centre-right">
+                <?php
+                $args = array(
+                    'post_type' => 'post',
+                    'posts_per_page' => 10,
+                );
+                $query = new WP_Query($args);
+                if ($query->have_posts()) { ?>
+                    <div class="blog-list">
+                        <div class="js-post-slider">
+                            <?php while ($query->have_posts()): $query->the_post(); ?>
+                                <article id="blog-<?php the_ID() ?>" <?php post_class('blog-item') ?>>
+                                    <?php if (has_post_thumbnail()) {
+                                        $thumbnail = has_post_thumbnail()
+                                            ? sprintf("url('%s')",
+                                                esc_url(get_the_post_thumbnail_url(null, 'post-thumbnail')))
+                                            : 'none';
+                                        ?>
+                                        <a class="blog-thumbnail d-block" href="<?php the_permalink(); ?>"
+                                           style="background-image: <?php echo $thumbnail; ?>"></a>
+                                    <?php } ?>
+                                    <time class="blog-datetime d-block text-uppercase"
+                                          datetime="<?php echo get_the_date('c'); ?>">
+                                        <?php echo get_the_date(); ?>
+                                    </time>
+                                    <h2 class="blog-title">
+                                        <a class="blog-link" href="<?php the_permalink(); ?>"><?php the_title() ?></a>
+                                    </h2>
+                                </article>
+                            <?php endwhile; ?>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+        </div>
     </div>
 
 </div>

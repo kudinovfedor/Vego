@@ -25,14 +25,14 @@ if (function_exists('rwmb_meta')) {
                 <?php if (!empty($project['address'])) { ?>
                     <div class="box-group">
                         <i class="fas fa-map-marker-alt box-icon" aria-hidden="true"></i>
-                        <div class="box-head">Адрес</div>
+                        <div class="box-head text-uppercase">Адрес</div>
                         <div class="box-body"><?php echo $project['address']; ?></div>
                     </div>
                 <?php }
                 if (!empty($project['distance'])) { ?>
                     <div class="box-group">
                         <i class="fas fa-car box-icon" aria-hidden="true"></i>
-                        <div class="box-head">Расстояние</div>
+                        <div class="box-head text-uppercase">Расстояние</div>
                         <div class="box-body"><?php echo $project['distance']; ?></div>
                     </div>
                 <?php } ?>

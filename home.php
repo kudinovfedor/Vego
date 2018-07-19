@@ -9,7 +9,7 @@
             <h1 class="text-uppercase section-headline"><?php single_post_title(); ?></h1>
         </div>
         <?php if (have_posts()) { ?>
-            <ul class="blog-list">
+            <div class="blog-list">
                 <?php while (have_posts()): the_post(); ?>
                     <article id="blog-<?php the_ID() ?>" <?php post_class('blog-item') ?>>
                         <?php if (has_post_thumbnail()) {
@@ -28,7 +28,7 @@
                         </h2>
                     </article>
                 <?php endwhile; ?>
-            </ul>
+            </div>
         <?php } ?>
         <div class="text-center"><?php fk_pagination(); ?></div>
     </div>
