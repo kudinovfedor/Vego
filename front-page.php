@@ -11,7 +11,7 @@
     $query = new WP_Query($args);
 
     if ($query->have_posts()) { ?>
-        <div class="info container z-index-2">
+        <div class="info info-set-up container z-index-2">
             <ul class="info-list">
                 <?php while ($query->have_posts()) {
                     $query->the_post();

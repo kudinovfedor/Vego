@@ -1,31 +1,54 @@
 .header {
     position: relative;
-    color: $headerFontColor;
+    color: #fff;
     font-size: 12px;
     background: $headerBgColor none no-repeat center center;
     background-size: cover;
 
-    &::before,
-    &::after {
+    &::before {
         content: '';
         position: absolute;
-        right: 0;
-        left: 0;
-        margin: auto;
-    }
-
-    &::before {
         top: 0;
+        right: 0;
         bottom: 0;
-        background-color: #f5f0e9;
-        opacity: .9;
+        left: 0;
     }
 
-    &::after {
-        bottom: 0;
-        width: 100%;
-        max-width: 940px;
-        border-bottom: 2px solid #ff9f00;
+    &-front,
+    &-projects {
+        &::before {
+            background-color: #231600;
+            opacity: .65;
+        }
+    }
+
+    &-front {
+
+    }
+
+    &-projects {
+
+    }
+
+    &-default {
+        color: $headerFontColor;
+
+        &::before {
+            background-color: #f5f0e9;
+            opacity: .9;
+        }
+
+        &::after {
+            content: '';
+            width: 100%;
+            max-width: 940px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            border-bottom: 2px solid #ff9f00;
+        }
     }
 
     &-container {
@@ -128,7 +151,7 @@
 
         &:hover {
             text-decoration: none;
-            opacity: .8;
+            color: #ffb73f;
         }
     }
 }
