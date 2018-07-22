@@ -3755,11 +3755,11 @@ img { display: inline-block; vertical-align: middle; max-width: 100%; height: au
 
 .project-link { position: absolute; left: 0; bottom: 0; }
 
-.project-map { margin-top: -240px; margin-bottom: -170px; position: relative; height: 860px; }
+.project-map { margin-top: -240px; margin-bottom: -70px; position: relative; height: 860px; }
 
 .project-map::before, .project-map::after { content: ''; position: absolute; left: 0; right: 0; z-index: 1; pointer-events: none; }
 
-.project-map:before { height: 60%; top: 0; background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(transparent)); background-image: linear-gradient(to bottom, #fff, transparent); }
+.project-map::before { height: 60%; top: 0; background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(transparent)); background-image: linear-gradient(to bottom, #fff, transparent); }
 
 .project-map::after { height: 40%; bottom: 0; background-image: -webkit-gradient(linear, left bottom, left top, from(#fff), to(transparent)); background-image: linear-gradient(to top, #fff, transparent); }
 
@@ -3922,6 +3922,14 @@ img { display: inline-block; vertical-align: middle; max-width: 100%; height: au
 .press-centre .blog-item { margin-bottom: 0; }
 
 .press-centre .blog-thumbnail { -webkit-box-shadow: none; box-shadow: none; }
+
+.live { position: relative; z-index: 1; color: #333; border-bottom: 5px solid #f6eee3; padding: 30px 0 50px; background: url("assets/img/line-logo.png") no-repeat 45% bottom; }
+
+.live-title { font-weight: bold; font-size: 36px; line-height: 1.3; margin-bottom: 20px; }
+
+.live .highlight { color: #ff9f00; }
+
+.live-desc { font-size: 14px; line-height: 1.57143; }
 
 @media only screen and (max-width: 960px) { .info-item { width: 50%; }
   .payment-thumbnail { display: none; }

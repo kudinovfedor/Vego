@@ -163,6 +163,7 @@ if (!class_exists('GoogleMaps')) {
                 'themes' => array(
                     'type' => get_theme_mod('google_map_themes_type', 'roadmap'),
                     'styles' => get_theme_mod('google_map_themes_styles', 0),
+                    'styles_js' => get_theme_mod('google_map_themes_styles_js', ''),
                 ),
 
                 // Marker
@@ -345,7 +346,11 @@ if (!class_exists('GoogleMaps')) {
 
                         clickableIcons: <?php $this->isOptionEnabled($map['control']['clickable_poi']) ?>,
 
+                        <?php if(!empty($map['themes']['styles_js'])) { ?>
+                        styles: <?php echo $map['themes']['styles_js']; ?>,
+                        <?php } else { ?>
                         styles: <?php echo $map['themes']['styles'] === 0 ? '[]' : $this->snazzy_maps->getItemJson($map['themes']['styles']) ?>,
+                        <?php } ?>
                     };
 
                     map = new google.maps.Map(mapElement, mapOptions);

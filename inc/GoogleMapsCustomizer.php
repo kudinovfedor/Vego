@@ -569,6 +569,10 @@ if (!class_exists('GoogleMapsCustomizer')) {
                 'default' => 0,
                 'sanitize_callback' => 'absint',
             ));
+            $wp_customize->add_setting('google_map_themes_styles_js', array(
+                'default' => '',
+                'sanitize_callback' => '',
+            ));
 
             $wp_customize->add_control('google_map_themes_type', array(
                 'label' => 'Google Maps theme',
@@ -591,6 +595,17 @@ if (!class_exists('GoogleMapsCustomizer')) {
                 'type' => 'select',
                 'choices' => array_replace(array(0 => 'Default'), $this->snazzy_maps->getMapStyles()),
             ));
+
+            $wp_customize->add_control(new WP_Customize_Code_Editor_Control($wp_customize, 'google_map_themes_styles_js', array(
+                'label' => 'Shazzy Maps JavaScript Style',
+                'description' => 'Javascript style array:',
+                'section' => 'google_map_themes',
+                'settings' => 'google_map_themes_styles_js',
+                'code_type' => 'text/javascript',
+                'input_attrs' => array(
+                    'placeholder' => '',
+                ),
+            )));
 
             // Section Marker
             $wp_customize->add_section('google_map_marker', array(

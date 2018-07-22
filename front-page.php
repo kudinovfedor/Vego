@@ -107,19 +107,18 @@
         <?php google_map(false); ?>
     </div>
 
-
     <?php
     $title = get_theme_mod('bw_vego_live_title');
     $desc = get_theme_mod('bw_vego_live_desc');
     if (!empty($title) || !empty($desc)) { ?>
-        <div class="">
+        <div class="live">
             <div class="container z-index-2">
                 <div class="row">
                     <?php if (!empty($title)) { ?>
-                        <div class="col-md-6"><?php echo $title; ?></div>
+                        <div class="col-md-6 live-title"><?php echo $title; ?></div>
                     <?php }
                     if (!empty($desc)) { ?>
-                        <div class="col-md-6"><?php echo $desc; ?></div>
+                        <div class="col-md-6 live-desc"><?php echo $desc; ?></div>
                     <?php } ?>
                 </div>
             </div>
