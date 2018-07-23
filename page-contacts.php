@@ -11,7 +11,12 @@
     <div class="contacts">
         <?php while (have_posts()) : the_post(); ?>
             <div class="contacts-map">
-                <?php google_map(false); ?>
+                <?php google_map(array(
+                    'marker' => array(
+                        'icon' => get_template_directory_uri() . '/assets/img/marker-without-shadow.png',
+                    ),
+                    'dimensions' => false,
+                )); ?>
             </div>
             <div class="container contacts-box">
                 <article id="page-<?php the_ID(); ?>" <?php post_class('section-content article'); ?>>

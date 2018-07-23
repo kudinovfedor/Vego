@@ -68,6 +68,16 @@
     &-time-work {
         padding-left: 12px;
     }
+
+    .button-medium {
+        color: inherit;
+        font-weight: normal;
+        text-transform: none;
+
+        .fas {
+            margin-right: 10px;
+        }
+    }
 }
 
 .logo {

@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="col-md-4 text-right header-btn">
-                <button type="button" class="button-medium js-callback">
+                <button type="button" class="button-medium button-outline js-callback">
                     <i class="fas fa-phone-volume" aria-hidden="true"></i>
                     <?php _e('Callback', 'brainworks'); ?>
                 </button>

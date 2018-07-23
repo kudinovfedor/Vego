@@ -231,13 +231,14 @@ if (!class_exists('GoogleMaps')) {
         /**
          * Output HTML Markup
          *
-         * @param bool $dimensions
-         *
+         * @param array $options
          * @return void
          */
-        public function htmlMarkup($dimensions = true)
+        public function htmlMarkup($options = array())
         {
             if ($this->isEnabled()) {
+
+                $dimensions = isset($options['dimensions']) ? (bool)$options['dimensions'] : true;
 
                 $style = sprintf(
                     'style="width: %spx; height: %spx;"',
@@ -256,7 +257,7 @@ if (!class_exists('GoogleMaps')) {
 
                 echo $markup;
 
-                $this->initMapJS();
+                $this->initMapJS($options);
             }
         }
 
@@ -269,33 +270,67 @@ if (!class_exists('GoogleMaps')) {
         { ?>
             <style>
                 <?php //.gm-style-iw {text-align: center; top: 0 !important; left: 0 !important;} ?>
-                .iw-wrapper { font: normal 13px/1.2 Arial, Helvetica, sans-serif; color: #000; background-color: #fff; text-align: left; }
+                .iw-wrapper {
+                    font: normal 13px/1.2 Arial, Helvetica, sans-serif;
+                    color: #000;
+                    background-color: #fff;
+                    text-align: left;
+                }
 
-                .iw-header { padding: 10px 15px; background-color: #4285f4; color: #fff; font-size: 16px; }
+                .iw-header {
+                    padding: 10px 15px;
+                    background-color: #4285f4;
+                    color: #fff;
+                    font-size: 16px;
+                }
 
-                .iw-content { padding: 8px 15px; border: 1px solid #4285f4; }
+                .iw-content {
+                    padding: 8px 15px;
+                    border: 1px solid #4285f4;
+                }
 
-                .iw-options { padding: 3px 0; }
+                .iw-options {
+                    padding: 3px 0;
+                }
 
-                .iw-details { border-top: 1px solid #e6e6e6; padding-top: 8px; margin-top: 5px; }
+                .iw-details {
+                    border-top: 1px solid #e6e6e6;
+                    padding-top: 8px;
+                    margin-top: 5px;
+                }
 
-                .iw-link { color: #4285f4; text-decoration: none; }
+                .iw-link {
+                    color: #4285f4;
+                    text-decoration: none;
+                }
 
-                .iw-link:hover { color: #4285f4; text-decoration: underline; }
+                .iw-link:hover {
+                    color: #4285f4;
+                    text-decoration: underline;
+                }
             </style>
         <?php }
 
         /**
          * Init Google Maps Js
          *
+         * @param array $options
          * @return void
          */
-        private function initMapJS()
+        private function initMapJS($options = array())
         {
-            $map = $this->options;
+            $map = array_replace_recursive($this->options, $options);
 
             if ($map['info_window']['enable']) {
                 $this->getInfoWindowStyles();
+            }
+
+            $style = '[]';
+
+            if (!empty($map['themes']['styles_js'])) {
+                $style = $map['themes']['styles_js'];
+            } elseif ($map['themes']['styles'] !== 0) {
+                $style = $this->snazzy_maps->getItemJson($map['themes']['styles']);
             }
             ?>
             <script>
@@ -346,14 +381,29 @@ if (!class_exists('GoogleMaps')) {
 
                         clickableIcons: <?php $this->isOptionEnabled($map['control']['clickable_poi']) ?>,
 
-                        <?php if(!empty($map['themes']['styles_js'])) { ?>
-                        styles: <?php echo $map['themes']['styles_js']; ?>,
-                        <?php } else { ?>
-                        styles: <?php echo $map['themes']['styles'] === 0 ? '[]' : $this->snazzy_maps->getItemJson($map['themes']['styles']) ?>,
-                        <?php } ?>
+                        styles: <?php echo $style; ?>,
                     };
 
                     map = new google.maps.Map(mapElement, mapOptions);
+
+                    <?php if(!empty($map['marker']['locations'])) { ?>
+                    var location, locations, iconUrl, marker;
+
+                    locations = <?php echo json_encode($map['marker']['locations']); ?>;
+                    iconUrl = "<?php echo $map['marker']['icon']; ?>";
+
+                    for (var i = 0; i < locations.length; i++) {
+                        location = locations[i];
+
+                        marker = new google.maps.Marker({
+                            icon: {
+                                'url': iconUrl,
+                            },
+                            map: map,
+                            position: {lat: parseFloat(location.lat), lng: parseFloat(location.lng)},
+                        });
+                    }
+                    <?php } else { ?>
 
                     mapMarker = new google.maps.Marker({
                         animation: <?php echo $map['marker']['animation'] !== 0 ? $map['marker']['animation'] : 'null'; ?>,
@@ -361,6 +411,11 @@ if (!class_exists('GoogleMaps')) {
                         crossOnDrag: <?php $this->isOptionEnabled($map['marker']['cross_drag']) ?>,
                         cursor: "<?php echo $map['marker']['cursor'] ?>",
                         draggable: <?php $this->isOptionEnabled($map['marker']['draggable']) ?>,
+                        <?php if(!empty($map['marker']['icon'])) { ?>
+                        icon: {
+                            'url': "<?php echo $map['marker']['icon']; ?>",
+                        },
+                        <?php } else { ?>
                         icon: {
                             'fillColor': '#ee1c25',
                             'fillOpacity': 1,
@@ -371,6 +426,7 @@ if (!class_exists('GoogleMaps')) {
                             'origin': {'x': 0, 'y': 0},
                             'style': 1
                         },
+                        <?php } ?>
                         label: "<?php echo $map['marker']['label'] ?>",
                         map: map,
                         opacity: <?php echo $map['marker']['opacity'] ?>,
@@ -380,6 +436,8 @@ if (!class_exists('GoogleMaps')) {
                         visible: <?php $this->isOptionEnabled($map['marker']['visible']) ?>,
                         zIndex: <?php echo $map['marker']['zindex'] ?>,
                     });
+
+                    <?php } ?>
 
                     <?php
                     if ('off' !== $map['layers']) {
@@ -452,16 +510,16 @@ if (!class_exists('GoogleMaps')) {
 if (!function_exists('google_map')) {
     /**
      * Display Google Map (HTML + Script tag with callback function)
-     * @param bool $dimensions
+     * @param array $options
      */
-    function google_map($dimensions = true)
+    function google_map($options = array())
     {
         if (class_exists('GoogleMaps')) {
             /**
              * @var GoogleMaps $google_map
              */
             global $google_map;
-            $google_map->htmlMarkup($dimensions);
+            $google_map->htmlMarkup($options);
         }
     }
 }

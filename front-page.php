@@ -2,6 +2,16 @@
 
 <div class="page-wrapper">
 
+    <div class="container" style="padding: 40px 0;">
+        <button class="button-small">Проложить маршрут</button>
+        <button class="button-medium">Проложить маршрут</button>
+        <button class="button-large">Проложить маршрут</button>
+        <br>
+        <button class="button-small button-outline">Проложить маршрут</button>
+        <button class="button-medium button-outline">Проложить маршрут</button>
+        <button class="button-large button-outline">Проложить маршрут</button>
+    </div>
+
     <?php
     $args = array(
         'post_type' => 'info',
@@ -91,20 +101,41 @@
         $query = new WP_Query($args);
 
         if ($query->have_posts()) {
-            $projects = [];
+            $coordinates = array();
+            $latitude = 0;
+            $longitude = 0;
             while ($query->have_posts()) {
                 $query->the_post();
-                $projects[] = array(
-                    'latitude' => esc_html(rwmb_meta('project-latitude')),
-                    'longitude' => esc_html(rwmb_meta('project-longitude')),
+                $project = array(
+                    'lat' => (float)rwmb_meta('project-latitude'),
+                    'lng' => (float)rwmb_meta('project-longitude'),
                 );
+                $coordinates[] = array(
+                    'lat' => $project['lat'],
+                    'lng' => $project['lng'],
+                );
+                $latitude += $project['lat'];
+                $longitude += $project['lng'];
             }
-            $projects = array_filter($projects, function ($value) {
-                return !empty($value['latitude']) && !empty($value['longitude']);
+
+            $coordinates = array_filter($coordinates, function ($value) {
+                return !empty($value['lat']) && !empty($value['lng']);
             });
-            //dump($projects);
+            $projects_count = count($coordinates);
+            $latitude = round($latitude / $projects_count, 2);
+            $longitude = round($longitude / $projects_count, 2);
+            dump($coordinates);
         } ?>
-        <?php google_map(false); ?>
+        <?php google_map(array(
+            'latitude' => $latitude,
+            'longitude' => $longitude,
+            'zoom' => 10,
+            'marker' => array(
+                'icon' => get_template_directory_uri() . '/assets/img/marker2-without-shadow.png',
+                'locations' => array_values($coordinates),
+            ),
+            'dimensions' => false,
+        )); ?>
     </div>
 
     <?php
@@ -165,7 +196,7 @@
             <div class="press-centre-left">
                 <h3 class="press-centre-title text-uppercase">Пресс-центр</h3>
                 <p class="press-centre-desc">Новости и акции компании</p>
-                <a href="" class="button-medium press-centre-btn">Все новости</a>
+                <a href="" class="button-medium button-outline press-centre-btn">Все новости</a>
             </div>
             <div class="press-centre-right">
                 <?php

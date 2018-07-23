@@ -17,7 +17,15 @@ if (function_exists('rwmb_meta')) {
     <!-- Start Location -->
     <div class="location">
         <div class="location-map">
-            <?php google_map(false); ?>
+            <?php google_map(array(
+                'latitude' => $project['latitude'],
+                'longitude' => $project['longitude'],
+                'zoom' => $zoom,
+                'marker' => array(
+                    'icon' => get_template_directory_uri() . '/assets/img/marker-without-shadow.png',
+                ),
+                'dimensions' => false,
+            )); ?>
         </div>
         <div class="container location-box">
             <h2 class="text-center section-title">Рассположение <span class="highlight">обьекта</span></h2>
@@ -37,7 +45,8 @@ if (function_exists('rwmb_meta')) {
                     </div>
                 <?php } ?>
                 <div class="box-group mb-0">
-                    <a class="button-medium" href="<?php echo esc_url($google_url); ?>" target="_blank">Проложить маршрут</a>
+                    <a class="button-medium button-outline" href="<?php echo esc_url($google_url); ?>" target="_blank">Проложить
+                        маршрут</a>
                 </div>
             </div>
         </div>

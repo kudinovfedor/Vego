@@ -55,7 +55,7 @@
                                         грн/м<sup>2</sup>
                                     </span>
                                 <?php } ?>
-                                <a class="project-link button-medium" href="<?php the_permalink(); ?>">Смотреть проект</a>
+                                <a class="project-link button-medium button-outline" href="<?php the_permalink(); ?>">Смотреть проект</a>
                             </div>
                             <div class="project-side-right">
                                 <ul class="project-details">
