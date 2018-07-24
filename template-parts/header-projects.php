@@ -59,6 +59,7 @@ $header_bg = has_post_thumbnail($post) ? $url : 'none'; ?>
         while (have_posts()) {
             the_post();
             $project = array(
+                'logo' => rwmb_meta('project-logo', array('size' => 'thumbnail', 'limit' => 1)),
                 'type' => esc_html(rwmb_meta('project-type')),
                 'price' => esc_html(number_format((float)rwmb_meta('project-price'), 0, '.', ' ')),
                 'date' => esc_html(rwmb_meta('project-completion-date')),
@@ -99,6 +100,11 @@ $header_bg = has_post_thumbnail($post) ? $url : 'none'; ?>
                         </div>
                     <?php } ?>
                 </div>
+                <?php if (!empty($project['logo'])) { $logo = reset($project['logo']); ?>
+                    <span class="project-logo-h">
+                        <img src="<?php echo esc_url($logo['full_url']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>">
+                    </span>
+                <?php } ?>
             </div>
         <?php }
     } ?>

@@ -30,6 +30,7 @@ require_once('inc/GoogleMapsCustomizer.php');
 require_once('inc/pagination.php');
 require_once('inc/post-type-info.php');
 require_once('inc/post-type-project.php');
+require_once('inc/post-type-house.php');
 
 function dump($expression)
 {
