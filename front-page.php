@@ -10,7 +10,7 @@
     $query = new WP_Query($args);
 
     if ($query->have_posts()) { ?>
-        <div class="info info-set-up container z-index-2">
+        <div class="info info-set-up container">
             <ul class="info-list">
                 <?php while ($query->have_posts()) {
                     $query->the_post();
@@ -185,7 +185,7 @@
             <div class="press-centre-left">
                 <h3 class="press-centre-title text-uppercase">Пресс-центр</h3>
                 <p class="press-centre-desc">Новости и акции компании</p>
-                <a href="" class="button-medium button-outline press-centre-btn">Все новости</a>
+                <a href="<?php the_permalink(get_option('page_for_posts')); ?>" class="button-medium button-outline press-centre-btn">Все новости</a>
             </div>
             <div class="press-centre-right">
                 <?php

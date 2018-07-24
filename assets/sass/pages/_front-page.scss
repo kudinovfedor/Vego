@@ -76,6 +76,8 @@
 
 .info {
     &-set-up {
+        position: relative;
+        z-index: 35;
         margin-top: -40px;
     }
 

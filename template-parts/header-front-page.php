@@ -1,6 +1,7 @@
-<?php echo __FILE__; ?>
-<?php $header_bg = has_header_image() ? sprintf("url('%s')", get_header_image()) : 'none'; ?>
-<header class="header header-front" style="background-image: <?php echo $header_bg; ?>;">
+<?php if (function_exists('layerslider')) {
+    layerslider(1);
+} ?>
+<header class="header header-front">
     <div class="container header-container">
         <button class="hamburger js-hamburger" type="button" tabindex="0">
             <span class="hamburger-box">

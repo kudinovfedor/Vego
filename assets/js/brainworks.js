@@ -19,6 +19,14 @@
                 appendArrows: '.blog-list',
                 prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-angle-left" aria-hidden="true"></i></button>',
                 nextArrow: '<button type="button" class="slick-next"><i class="fas fa-angle-right" aria-hidden="true"></i></button>',
+                responsive: [
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    },
+                ]
             });
         }
 

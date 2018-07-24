@@ -3232,6 +3232,16 @@ hr.style-four { height: 12px; border: 0; -webkit-box-shadow: inset 0 12px 12px -
 
 .fa.reversed-color { color: #ff9f00; }
 
+@media only screen and (min-width: 480px) { ::-webkit-scrollbar { width: 7px; height: 2px; }
+  ::-webkit-scrollbar-button { width: 0; height: 0; }
+  ::-webkit-scrollbar-thumb { background: #ff9f00; border: 0 none #fff; border-radius: 0; }
+  ::-webkit-scrollbar-thumb:hover { background: #fff; }
+  ::-webkit-scrollbar-thumb:active { background: #aaa; }
+  ::-webkit-scrollbar-track { background: #14151d; border: 0 none #fff; border-radius: 0; }
+  ::-webkit-scrollbar-track:hover { background: #111219; }
+  ::-webkit-scrollbar-track:active { background: #333; }
+  ::-webkit-scrollbar-corner { background: transparent; } }
+
 /* BLOCKS */
 .main-nav .menu-container { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; list-style: none; }
 
@@ -3366,6 +3376,10 @@ hr.style-four { height: 12px; border: 0; -webkit-box-shadow: inset 0 12px 12px -
 .header::before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
 
 .header-front::before, .header-projects::before { background-color: #231600; opacity: .65; }
+
+.header-front { position: absolute; left: 0; right: 0; top: 0; z-index: 50; background: transparent none; }
+
+.header-front::before { content: none; }
 
 .header-default { color: #333334; }
 
@@ -3555,7 +3569,7 @@ img { display: inline-block; vertical-align: middle; max-width: 100%; height: au
 
 .article, .article p { text-align: left; font-size: 14px; line-height: 1.5; margin-bottom: 15px; }
 
-.info-set-up { margin-top: -40px; }
+.info-set-up { position: relative; z-index: 35; margin-top: -40px; }
 
 .info-list { font-size: 0; margin: 0 -10px; }
 
@@ -4020,7 +4034,11 @@ img { display: inline-block; vertical-align: middle; max-width: 100%; height: au
   .project-logo-h { display: none; }
   .project-details { width: auto; }
   .project-details li + li { margin-top: 10px; }
-  .project-price-value { font-size: 18px; } }
+  .project-price-value { font-size: 18px; }
+  .press-centre-left { position: static; width: auto; padding: 20px; text-align: center; }
+  .press-centre-title, .press-centre-desc { margin-bottom: 10px; }
+  .press-centre-btn { position: static; }
+  .press-centre-right { margin-left: 0; padding: 70px 10px 30px 10px; } }
 
 @media only screen and (max-width: 768px) { .project-type-h { margin-top: 15px; }
   .project-details-h { padding: 30px 0 10px; text-align: center; }

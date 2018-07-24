@@ -21,7 +21,9 @@
                     } ?>
                     <article id="page-<?php the_ID(); ?>" <?php post_class('article'); ?>>
                         <h1 class="text-uppercase section-headline"><?php the_title(); ?></h1>
-                        <?php the_content(); ?>
+                        <div style="max-height: 700px; overflow-y: auto;">
+                            <?php the_content(); ?>
+                        </div>
                     </article>
                 </div>
             </div>

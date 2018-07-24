@@ -10,8 +10,9 @@
     <?php endif; ?>
     <div class="container text-center text-uppercase">
         <div class="footer-copyright ">
-            <?php echo date('Y'); ?> &copy; <?php bloginfo('name'); ?>
-            Все права защищены
+            <?php /* <?php echo date('Y'); ?> &copy; <?php bloginfo('name'); ?>
+            Все права защищены */ ?>
+            Сайт разработан <a href="https://brainworks.pro/" target="_blank" rel="noopener">BRAIN WORKS</a> <?php echo date('Y'); ?> &copy; VEGO ВСЕ ПРАВА ЗАЩИЩЕНЫ
         </div>
     </div>
 </footer>
