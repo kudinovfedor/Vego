@@ -22,10 +22,10 @@
             });
         }
 
-        if (houseSlider.length && houseSlider.find('.house__thumbnail').length > 1) {
+        if (houseSlider.length && houseSlider.find('.house-thumbnail').length > 1) {
             houseSlider.each(function (index) {
                 var _this = $(this);
-                var nav = _this.closest('.house__body').find('.house__gallery-nav');
+                var nav = _this.closest('.house-body').find('.house-gallery-nav');
                 nav.attr('data-slider', index);
 
                 _this.slick({
@@ -33,8 +33,8 @@
                     slidesToScroll: 1,
                     arrows: true,
                     dots: true,
-                    appendArrows: '[data-slider="' + index + '"]',
                     appendDots: '[data-slider="' + index + '"]',
+                    appendArrows: '[data-slider="' + index + '"]',
                     prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-angle-left" aria-hidden="true"></i></button>',
                     nextArrow: '<button type="button" class="slick-next"><i class="fas fa-angle-right" aria-hidden="true"></i></button>',
                 });

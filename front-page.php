@@ -1,17 +1,6 @@
 <?php get_header(); ?>
 
 <div class="page-wrapper">
-
-    <div class="container" style="padding: 40px 0;">
-        <button class="button-small">Проложить маршрут</button>
-        <button class="button-medium">Проложить маршрут</button>
-        <button class="button-large">Проложить маршрут</button>
-        <br>
-        <button class="button-small button-outline">Проложить маршрут</button>
-        <button class="button-medium button-outline">Проложить маршрут</button>
-        <button class="button-large button-outline">Проложить маршрут</button>
-    </div>
-
     <?php
     $args = array(
         'post_type' => 'info',
@@ -124,7 +113,7 @@
             $projects_count = count($coordinates);
             $latitude = round($latitude / $projects_count, 2);
             $longitude = round($longitude / $projects_count, 2);
-            dump($coordinates);
+            //dump($coordinates);
         } ?>
         <?php google_map(array(
             'latitude' => $latitude,

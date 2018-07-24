@@ -45,9 +45,16 @@
         get_template_part('template-parts/header', 'default');
     } ?>
 
-    <?php //dump([is_front_page(), is_home(), get_post_type(), is_single()]); ?>
-
     <?php /*
+    <div class="container" style="padding: 40px 0;">
+        <button class="button-small">Проложить маршрут</button>
+        <button class="button-medium">Проложить маршрут</button>
+        <button class="button-large">Проложить маршрут</button>
+        <br>
+        <button class="button-small button-outline">Проложить маршрут</button>
+        <button class="button-medium button-outline">Проложить маршрут</button>
+        <button class="button-large button-outline">Проложить маршрут</button>
+    </div>
     <?php get_default_logo_link(); ?>
 
     <?php if (function_exists('pll_the_languages')) { ?>

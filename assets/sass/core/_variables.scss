@@ -7,7 +7,7 @@ $shadow: 0 0 10px rgba(#000, .7);
 
 // BRAND
 $themeColorOne: #2c3e50; // header, menu, footer, title,
-$themeColorTwo: #e74c3c; // menu active item, button, footer link hover,
+$themeColorTwo: #ff9f00; // menu active item, button, footer link hover,
 $themeColorThree: #3498db; // preHeader bg,
 $themeColorFour: #2980b9; //menu hover item, table border, preHeader font
 
@@ -54,7 +54,7 @@ $menuMobileSubMenuBGOnHover: #ccc;
 $hamburger-offset: 8px;
 $hamburger-duration: .1s;
 $hamburger-delay: .1s;
-$hamburger-color: $themeColorTwo;
+$hamburger-color: #ff9f00;
 
 $menu-close-size: 25px;
 $menu-close-color: $themeColorTwo;

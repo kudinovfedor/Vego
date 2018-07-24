@@ -1,10 +1,14 @@
 <?php
-echo __FILE__;
 global $post;
 $url = sprintf("url('%s')", get_the_post_thumbnail_url($post, 'full'));
 $header_bg = has_post_thumbnail($post) ? $url : 'none'; ?>
 <header class="header header-projects" style="background-image: <?php echo $header_bg; ?>;">
     <div class="container header-container">
+        <button class="hamburger js-hamburger" type="button" tabindex="0">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
         <?php if (has_nav_menu('main-nav')) { ?>
             <nav class="nav js-menu header-nav">
                 <button type="button" tabindex="0" class="menu-item-close menu-close js-menu-close"></button>
@@ -20,7 +24,7 @@ $header_bg = has_post_thumbnail($post) ? $url : 'none'; ?>
             </nav>
         <?php } ?>
         <div class="row">
-            <div class="col-md-4 header-phone">
+            <div class="col-sm-4 header-phone">
                 <?php if (has_phones()) { ?>
                     <ul class="phone">
                         <?php foreach (get_phones() as $key => $phone) {
@@ -40,14 +44,14 @@ $header_bg = has_post_thumbnail($post) ? $url : 'none'; ?>
                     <span class="header-time-work d-block"><?php echo strip_tags($time_work, '<sup>'); ?></span>
                 <?php } ?>
             </div>
-            <div class="col-md-4 text-center header-logo">
+            <div class="col-sm-4 text-center header-logo">
                 <div class="logo text-uppercase">
                     <?php get_default_logo_link(); ?>
                     <span class="logo-vego d-block">Vego</span>
                     <span class="logo-dev d-block">development</span>
                 </div>
             </div>
-            <div class="col-md-4 text-right header-btn">
+            <div class="col-sm-4 text-right header-btn">
                 <button type="button" class="button-medium button-outline js-callback">
                     <i class="fas fa-phone-volume" aria-hidden="true"></i>
                     <?php _e('Callback', 'brainworks'); ?>
@@ -100,21 +104,14 @@ $header_bg = has_post_thumbnail($post) ? $url : 'none'; ?>
                         </div>
                     <?php } ?>
                 </div>
-                <?php if (!empty($project['logo'])) { $logo = reset($project['logo']); ?>
+                <?php if (!empty($project['logo'])) {
+                    $logo = reset($project['logo']); ?>
                     <span class="project-logo-h">
-                        <img src="<?php echo esc_url($logo['full_url']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>">
+                        <img src="<?php echo esc_url($logo['full_url']); ?>"
+                             alt="<?php echo esc_attr($logo['alt']); ?>">
                     </span>
                 <?php } ?>
             </div>
         <?php }
     } ?>
 </header>
-
-<div class="nav-mobile-header">
-    <button class="hamburger js-hamburger" type="button" tabindex="0">
-            <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-            </span>
-    </button>
-    <div class="logo"><?php get_default_logo_link(); ?></div>
-</div>

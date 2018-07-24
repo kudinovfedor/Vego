@@ -77,7 +77,14 @@ if (!class_exists('GoogleMaps')) {
 
             $query = http_build_query($query_data);
 
-            $src = sprintf('https://maps.googleapis.com/maps/api/js?%s', $query);
+            $src = '';
+
+            if (is_front_page()
+                || ('projects' === get_post_type() && is_single())
+                || (is_page_template('page-contacts.php') || is_page('contacts'))
+            ) {
+                $src = sprintf('https://maps.googleapis.com/maps/api/js?%s', $query);
+            }
 
             return $src;
         }

@@ -1255,14 +1255,13 @@
 }
 
 .house {
-    &__list {
+    &-list {
         @extend %reset-list;
         padding-left: 80px;
 
-
     }
 
-    &__item {
+    &-item {
         color: #333;
         font-size: 14px;
 
@@ -1271,19 +1270,19 @@
         }
     }
 
-    &__header {
+    &-header {
         overflow: hidden;
         margin-left: 300px;
         padding: 0 0 15px 40px;
     }
 
-    &__type {
+    &-type {
         display: inline-block;
         padding: 20px 0;
         font-size: 18px;
     }
 
-    &__square {
+    &-square {
         float: right;
 
         .highlight {
@@ -1300,7 +1299,7 @@
         }
     }
 
-    &__body {
+    &-body {
         @extend %reset-list;
         position: relative;
         min-height: 360px;
@@ -1309,7 +1308,7 @@
         box-shadow: 0 8px 30px rgba(#2b1b00, .15);
     }
 
-    &__preview {
+    &-preview {
         position: absolute;
         overflow: hidden;
         width: 380px;
@@ -1320,22 +1319,13 @@
         box-shadow: 0 8px 30px rgba(#2b1b00, .15);
 
         &--sold {
-            .house__thumbnail {
+            .house-thumbnail {
                 opacity: .5;
             }
         }
     }
 
-    &__status {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 60px;
-        text-align: center;
-        z-index: 1;
-    }
-
-    &__thumbnail {
+    &-thumbnail {
         display: block;
         width: 380px;
         height: 380px;
@@ -1343,15 +1333,70 @@
         background-size: cover;
     }
 
-    &__main {
+    &-status {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 60px;
+        text-align: center;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    &-gallery-nav {
+        position: absolute;
+        left: 20px;
+        top: 320px;
+
+        .slick-arrow {
+            font-size: 20px;
+            vertical-align: middle;
+        }
+
+        .slick-next {
+            float: right;
+        }
+
+        .slick-dots {
+            &,
+            li {
+                display: inline-block;
+                vertical-align: middle;
+                line-height: 1;
+            }
+
+            li {
+                cursor: pointer;
+                width: 11px;
+                height: 11px;
+                border-radius: 50%;
+                margin: 5px 9px;
+                background-color: #ff9f00;
+
+                &.slick-active {
+                    background-color: #333;
+                }
+            }
+
+            button {
+                background-color: transparent;
+                border: 0;
+                padding: 0;
+                overflow: hidden;
+                text-indent: -9999px;
+            }
+        }
+    }
+
+    &-main {
         font-size: 0;
         display: flex;
     }
 
-    &__content {
+    &-content {
         font-size: 14px;
         width: 340px;
-        padding: 30px 20px 40px 40px;
+        padding: 30px 20px 40px 35px;
         display: inline-block;
         vertical-align: top;
 
@@ -1366,18 +1411,23 @@
         }
     }
 
-    &__details {
+    &-details {
         font-size: 14px;
         display: inline-block;
         vertical-align: top;
         width: 220px;
-        padding: 30px 20px 30px 40px;
+        padding: 30px 20px 30px 35px;
         background-color: #fbf9f6;
 
         li {
             font-size: 12px;
             line-height: 1.5;
             margin-bottom: 10px;
+
+            span {
+                display: inline-block;
+                width: 105px;
+            }
         }
     }
 }
