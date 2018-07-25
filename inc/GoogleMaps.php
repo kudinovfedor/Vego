@@ -394,7 +394,7 @@ if (!class_exists('GoogleMaps')) {
                     map = new google.maps.Map(mapElement, mapOptions);
 
                     <?php if(!empty($map['marker']['locations'])) { ?>
-                    var location, locations, iconUrl, marker;
+                    var locations, location, iconUrl, marker;
 
                     locations = <?php echo json_encode($map['marker']['locations']); ?>;
                     iconUrl = "<?php echo $map['marker']['icon']; ?>";
@@ -409,6 +409,12 @@ if (!class_exists('GoogleMaps')) {
                             map: map,
                             position: {lat: parseFloat(location.lat), lng: parseFloat(location.lng)},
                         });
+
+                        google.maps.event.addListener(marker, 'click', (function (location) {
+                            return function () {
+                                document.location.href = location.url;
+                            }
+                        })(location));
                     }
                     <?php } else { ?>
 

@@ -102,6 +102,7 @@
                 $coordinates[] = array(
                     'lat' => $project['lat'],
                     'lng' => $project['lng'],
+                    'url' => get_the_permalink(),
                 );
                 $latitude += $project['lat'];
                 $longitude += $project['lng'];
