@@ -123,6 +123,12 @@ function projects_get_meta_box($meta_boxes)
 
     $philosophy_fields = array();
 
+    $philosophy_fields[] = array(
+        'id' => $prefix . 'philosophy-headline',
+        'type' => 'text',
+        'name' => esc_html__('Название блока', 'brainworks'),
+    );
+
     for ($i = 1; $i < 9; $i++) {
         $philosophy_fields[] = array(
             'id' => 'heading_' . $i,
@@ -185,15 +191,15 @@ function projects_get_meta_box($meta_boxes)
             array(
                 'id' => $prefix . 'visit-list',
                 'type' => 'text',
-                'name' => esc_html__( 'Список', 'metabox-online-generator' ),
+                'name' => esc_html__('Список', 'metabox-online-generator'),
                 'size' => 75,
                 'clone' => true,
                 'sort_clone' => true,
-                'add_button' => esc_html__( 'Добавить еще', 'metabox-online-generator' ),
+                'add_button' => esc_html__('Добавить еще', 'metabox-online-generator'),
             ),
             array(
                 'id' => $prefix . 'visit-form',
-                'name' => esc_html__( 'Form shortcode', 'metabox-online-generator' ),
+                'name' => esc_html__('Form shortcode', 'metabox-online-generator'),
                 'type' => 'text',
             ),
 

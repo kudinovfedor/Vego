@@ -19,6 +19,7 @@
 
                     if (function_exists('rwmb_meta')) {
                         $info['city'] = esc_html(rwmb_meta('info-city'));
+                        $info['link'] = esc_url(rwmb_meta('info-link'));
                         $info['price'] = esc_html(number_format(rwmb_meta('info-price'), 0, '.', ' '));
                         $info['labels'] = array(
                             'blue' => rwmb_meta('info-label-blue'),
@@ -71,7 +72,8 @@
                                 грн/1M<sup>2</sup>
                             </span>
                             <?php } ?>
-                            <a class="info-link text-uppercase" href="<?php the_permalink() ?>">Подробнее</a>
+                            <a class="info-link text-uppercase"
+                               href="<?php echo !empty($info['link']) ? $info['link'] : get_the_permalink(); ?>">Подробнее</a>
                         </div>
                     </li>
                 <?php } ?>
@@ -186,7 +188,8 @@
             <div class="press-centre-left">
                 <h3 class="press-centre-title text-uppercase">Пресс-центр</h3>
                 <p class="press-centre-desc">Новости и акции компании</p>
-                <a href="<?php the_permalink(get_option('page_for_posts')); ?>" class="button-medium button-outline press-centre-btn">Все новости</a>
+                <a href="<?php the_permalink(get_option('page_for_posts')); ?>"
+                   class="button-medium button-outline press-centre-btn">Все новости</a>
             </div>
             <div class="press-centre-right">
                 <?php

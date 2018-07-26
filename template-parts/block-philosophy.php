@@ -1,5 +1,6 @@
 <?php
 if (function_exists('rwmb_meta')) {
+    $headline = rwmb_meta('project-philosophy-headline');
     $philosophy = [];
     for ($i = 1; $i < 9; $i++) {
         $philosophy[] = array(
@@ -11,7 +12,9 @@ if (function_exists('rwmb_meta')) {
     ?>
     <!-- Start Philosophy -->
     <div class="philosophy">
-        <h2 class="section-title with-divider text-center">Философия <span class="highlight">комфорта</span></h2>
+        <?php if (!empty($headline)) { ?>
+            <h2 class="section-title with-divider text-center"><?php echo $headline; ?></h2>
+        <?php } ?>
         <ul class="philosophy-list">
             <?php foreach ($philosophy as $key => $item) {
                 if (empty($item['image']) || empty($item['title']) || empty($item['desc'])) {

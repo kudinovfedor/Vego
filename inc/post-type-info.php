@@ -18,6 +18,11 @@ function fk_info_get_meta_box($meta_boxes)
                 'name' => esc_html__('City', 'brainworks'),
             ),
             array(
+                'id' => $prefix . 'link',
+                'type' => 'url',
+                'name' => esc_html__('Подробнее', 'brainworks'),
+            ),
+            array(
                 'id' => $prefix . 'price',
                 'type' => 'number',
                 'name' => esc_html__('Price', 'brainworks'),
