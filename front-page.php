@@ -71,9 +71,10 @@
                                 <span class="info-price-value"><?php echo $info['price']; ?></span>
                                 грн/1M<sup>2</sup>
                             </span>
+                            <?php }
+                            if (!empty($info['link'])) { ?>
+                                <a class="info-link text-uppercase" href="<?php echo $info['link']; ?>">Подробнее</a>
                             <?php } ?>
-                            <a class="info-link text-uppercase"
-                               href="<?php echo !empty($info['link']) ? $info['link'] : get_the_permalink(); ?>">Подробнее</a>
                         </div>
                     </li>
                 <?php } ?>
