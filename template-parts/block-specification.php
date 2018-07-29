@@ -2,6 +2,9 @@
 if (function_exists('rwmb_meta')) {
     $specification = [];
 
+    $headline = rwmb_meta('project-spec-headline');
+    $headline = !empty($headline) ? $headline : 'Спецификация <span class="highlight">поселка</span>';
+
     for ($i = 1; $i < 17; $i++) {
         $specification[] = array(
             'svg-icon' => esc_html(rwmb_meta('project-spec-svg-icon-' . $i)),
@@ -24,7 +27,7 @@ if (function_exists('rwmb_meta')) {
     <!-- Start Specification -->
     <div class="specification">
         <div class="container text-center">
-            <h2 class="section-title with-divider">Спецификация <span class="highlight">поселка</span></h2>
+            <h2 class="section-title with-divider"><?php echo $headline; ?></h2>
             <ul class="specification-list">
                 <?php foreach ($specification as $key => $item) {
                     if (empty($item['text'])) {
@@ -34,14 +37,10 @@ if (function_exists('rwmb_meta')) {
                         <span class="specification-icon">
                             <?php if (!empty($item['svg-icon']) && array_key_exists($item['svg-icon'], $icons)) {
                                 $icon = $icons[$item['svg-icon']];
-                                $width = $icon['width'];
-                                $height = $icon['height'];
-                                $color = $icon['color'];
-                                $name = $icon['href'];
                                 ?>
-                                <svg class="svg-icon" fill="<?php echo $color; ?>"
-                                     width="<?php echo $width; ?>" height="<?php echo $height; ?>">
-                                    <use xlink:href="#<?php echo $name; ?>"></use>
+                                <svg class="svg-icon" fill="<?php echo $icon['color']; ?>"
+                                     width="<?php echo $icon['width']; ?>" height="<?php echo $icon['height']; ?>">
+                                    <use xlink:href="#<?php echo $icon['href']; ?>"></use>
                                 </svg>
                             <?php }
                             if (empty($item['svg-icon']) && !empty($item['image-icon'])) {

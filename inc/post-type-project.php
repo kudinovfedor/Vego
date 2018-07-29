@@ -12,6 +12,12 @@ function projects_get_meta_box($meta_boxes)
         'autosave' => true,
         'fields' => array(
             array(
+                'id' => $prefix . 'house-headline',
+                'type' => 'text',
+                'name' => esc_html__('Название блока c домами', 'brainworks'),
+                'placeholder' => 'Дуплексы',
+            ),
+            array(
                 'id' => $prefix . 'status',
                 'type' => 'text',
                 'name' => esc_html__('Статус', 'brainworks'),
@@ -82,6 +88,13 @@ function projects_get_meta_box($meta_boxes)
 
     $spec_fields = array();
 
+    $spec_fields[] = array(
+        'id' => $prefix . 'spec-svg-headline-',
+        'type' => 'text',
+        'name' => esc_html__('Название блока', 'brainworks'),
+        'placeholder' => esc_html__('Спецификация <span class="highlight">поселка</span>', 'brainworks'),
+    );
+
     for ($i = 1; $i < 17; $i++) {
         $spec_fields[] = array(
             'id' => 'heading-' . $i,
@@ -127,6 +140,7 @@ function projects_get_meta_box($meta_boxes)
         'id' => $prefix . 'philosophy-headline',
         'type' => 'text',
         'name' => esc_html__('Название блока', 'brainworks'),
+        'placeholder' => 'Философия <span class="highlight">комфорта</span>',
     );
 
     for ($i = 1; $i < 9; $i++) {

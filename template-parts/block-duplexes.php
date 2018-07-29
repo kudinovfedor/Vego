@@ -1,7 +1,14 @@
 <!-- Start Duplexes -->
 <div class="duplexes">
     <div class="container">
-        <h2 class="section-title with-divider text-center">Дуплексы</h2>
+        <?php
+        $headline = 'Дуплексы';
+
+        if (function_exists('rwmb_meta')) {
+            $headline = rwmb_meta('project-house-headline');
+            $headline = !empty($headline) ? $headline : 'Дуплексы';
+        } ?>
+        <h2 class="section-title with-divider text-center"><?php echo $headline; ?></h2>
         <?php
         global $post;
         $post_id = $post->ID;
@@ -66,7 +73,8 @@
                                 <div class="house-content">
                                     <?php the_content(); ?>
                                     <?php if (!$status) { ?>
-                                        <button class="button-medium js-house-price" type="button">Узнать стоимость</button>
+                                        <button class="button-medium js-house-price" type="button">Узнать стоимость
+                                        </button>
                                     <?php } ?>
                                 </div>
                                 <div class="house-details">
@@ -81,7 +89,9 @@
                                         </ul>
                                     <?php }
                                     if (!empty($house['extra-options'])) { ?>
-                                        <div class="text-uppercase text-bold mb-10" style="letter-spacing: 2.1px;">Дополнительно</div>
+                                        <div class="text-uppercase text-bold mb-10" style="letter-spacing: 2.1px;">
+                                            Дополнительно
+                                        </div>
                                         <ul>
                                             <?php foreach ($house['extra-options'] as $item) { ?>
                                                 <li>
