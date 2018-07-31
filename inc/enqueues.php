@@ -29,6 +29,10 @@ function bw_enqueues()
             true);
     }
 
+    wp_register_script('form-js', get_template_directory_uri() . '/assets/js/Form.js', array(),
+        false, null);
+    wp_enqueue_script('form-js');
+
     wp_register_script('brainworks-js', get_template_directory_uri() . '/assets/js/brainworks.js', array('jquery'),
         null, true);
     wp_enqueue_script('brainworks-js');
