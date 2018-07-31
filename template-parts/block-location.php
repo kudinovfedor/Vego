@@ -9,10 +9,18 @@ if (function_exists('rwmb_meta')) {
     );
 
     $zoom = !empty($project['zoom']) ? $project['zoom'] : 10;
-    $google_url = sprintf(
-        'https://www.google.com/maps/dir//%1$s,%2$s/@%1$s,%2$s,%3$sz',
-        $project['latitude'], $project['longitude'], $zoom
-    );
+
+    if (wp_is_mobile()) {
+        $google_url = sprintf(
+            'https://maps.google.com/?q=%1$s,%2$s',
+            $project['latitude'], $project['longitude']
+        );
+    } else {
+        $google_url = sprintf(
+            'https://www.google.com/maps/dir//%1$s,%2$s/@%1$s,%2$s,%3$sz',
+            $project['latitude'], $project['longitude'], $zoom
+        );
+    }
     ?>
     <!-- Start Location -->
     <div class="location">
