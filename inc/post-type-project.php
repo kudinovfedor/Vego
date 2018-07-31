@@ -5,7 +5,7 @@ function projects_get_meta_box($meta_boxes)
 
     $meta_boxes[] = array(
         'id' => 'project',
-        'title' => esc_html__('Основные параметры', 'brainworks'),
+        'title' => 'Основные параметры',
         'post_types' => array('projects'),
         'context' => 'advanced',
         'priority' => 'default',
@@ -14,74 +14,74 @@ function projects_get_meta_box($meta_boxes)
             array(
                 'id' => $prefix . 'house-headline',
                 'type' => 'text',
-                'name' => esc_html__('Название блока c домами', 'brainworks'),
+                'name' => 'Название блока c домами',
                 'placeholder' => 'Дуплексы',
             ),
             array(
                 'id' => $prefix . 'status',
                 'type' => 'text',
-                'name' => esc_html__('Статус', 'brainworks'),
-                'placeholder' => esc_html__('Построен', 'brainworks'),
+                'name' => 'Статус',
+                'placeholder' => 'Построен',
             ),
             array(
                 'id' => $prefix . 'completion-date',
                 'type' => 'text',
-                'name' => esc_html__('Дата сдачи', 'brainworks'),
-                'placeholder' => esc_html__('III квартал 2018', 'brainworks'),
+                'name' => 'Дата сдачи',
+                'placeholder' => 'III квартал 2018',
             ),
             array(
                 'id' => $prefix . 'address',
                 'type' => 'text',
-                'name' => esc_html__('Адрес', 'brainworks'),
-                'placeholder' => esc_html__('Киевская область,  г.Борисполь, ул. Коцюбинского 17', 'brainworks'),
+                'name' => 'Адрес',
+                'placeholder' => 'Киевская область,  г.Борисполь, ул. Коцюбинского 17',
             ),
             array(
                 'id' => $prefix . 'distance',
                 'type' => 'text',
-                'name' => esc_html__('Расстояние', 'brainworks'),
-                'placeholder' => esc_html__('20,3 км до М Бориспольская', 'brainworks'),
+                'name' => 'Расстояние',
+                'placeholder' => '20,3 км до М Бориспольская',
             ),
             array(
                 'id' => $prefix . 'price',
                 'type' => 'number',
-                'name' => esc_html__('Цена', 'brainworks'),
-                'placeholder' => esc_html__('10 000', 'brainworks'),
+                'name' => 'Цена',
+                'placeholder' => '10 000',
             ),
             array(
                 'id' => $prefix . 'type',
                 'type' => 'text',
-                'name' => esc_html__('Тип', 'brainworks'),
-                'placeholder' => esc_html__('Коттеджный двор', 'brainworks'),
+                'name' => 'Тип',
+                'placeholder' => 'Коттеджный двор',
             ),
             array(
                 'id' => $prefix . 'logo',
                 'type' => 'image_advanced',
-                'name' => esc_html__('Логотип', 'brainworks'),
+                'name' => 'Логотип',
                 'max_file_uploads' => 1,
                 'max_status' => false,
             ),
             array(
                 'id' => $prefix . 'latitude',
                 'type' => 'text',
-                'name' => esc_html__('Широта', 'brainworks'),
-                'placeholder' => esc_html__('Latitude', 'brainworks'),
+                'name' => 'Широта',
+                'placeholder' => 'Latitude',
             ),
             array(
                 'id' => $prefix . 'longitude',
                 'type' => 'text',
-                'name' => esc_html__('Долгота', 'brainworks'),
-                'placeholder' => esc_html__('Longitude', 'brainworks'),
+                'name' => 'Долгота',
+                'placeholder' => 'Longitude',
             ),
             array(
                 'id' => $prefix . 'zoom',
                 'type' => 'text',
-                'name' => esc_html__('Зум', 'brainworks'),
-                'placeholder' => esc_html__('10', 'brainworks'),
+                'name' => 'Зум',
+                'placeholder' => '10',
             ),
             array(
                 'id' => $prefix . 'gallery',
                 'type' => 'image_advanced',
-                'name' => esc_html__('Галерея', 'brainworks'),
+                'name' => 'Галерея',
             ),
         ),
     );
@@ -89,10 +89,10 @@ function projects_get_meta_box($meta_boxes)
     $spec_fields = array();
 
     $spec_fields[] = array(
-        'id' => $prefix . 'spec-svg-headline-',
+        'id' => $prefix . 'spec-headline',
         'type' => 'text',
-        'name' => esc_html__('Название блока', 'brainworks'),
-        'placeholder' => esc_html__('Спецификация <span class="highlight">поселка</span>', 'brainworks'),
+        'name' => 'Название блока',
+        'placeholder' => 'Спецификация <span class="highlight">поселка</span>',
     );
 
     for ($i = 1; $i < 17; $i++) {
@@ -105,8 +105,8 @@ function projects_get_meta_box($meta_boxes)
         $spec_fields[] = array(
             'id' => $prefix . 'spec-svg-icon-' . $i,
             'type' => 'text',
-            'name' => esc_html__('SVG иконка', 'brainworks'),
-            'desc' => 'SVG icons list (<b>bricks, facade, doors, windows, foundation, roof, gates, terrace</b>)',
+            'name' => 'SVG иконка',
+            'desc' => 'SVG icons list (<b>roller, stairs, gas-pipe, electric-meter, plug, header-radiator, grill, heater, paving, bricks, facade, doors, windows, foundation, roof, gates, terrace</b>)',
         );
 
         $spec_fields[] = array(
@@ -114,19 +114,19 @@ function projects_get_meta_box($meta_boxes)
             'type' => 'image_advanced',
             'max_file_uploads' => 1,
             'max_status' => false,
-            'name' => esc_html__('Иконка jpg, png формата', 'brainworks'),
+            'name' => 'Иконка jpg, png формата',
         );
 
         $spec_fields[] = array(
             'id' => $prefix . 'spec-text-' . $i,
             'type' => 'text',
-            'name' => esc_html__('Текст', 'brainworks'),
+            'name' => 'Текст',
         );
     }
 
     $meta_boxes[] = array(
         'id' => 'spec',
-        'title' => esc_html__('Спецификация поселка', 'brainworks'),
+        'title' => 'Спецификация поселка',
         'post_types' => array('projects'),
         'context' => 'advanced',
         'priority' => 'default',
@@ -139,7 +139,7 @@ function projects_get_meta_box($meta_boxes)
     $philosophy_fields[] = array(
         'id' => $prefix . 'philosophy-headline',
         'type' => 'text',
-        'name' => esc_html__('Название блока', 'brainworks'),
+        'name' => 'Название блока',
         'placeholder' => 'Философия <span class="highlight">комфорта</span>',
     );
 
@@ -153,7 +153,7 @@ function projects_get_meta_box($meta_boxes)
         $philosophy_fields[] = array(
             'id' => $prefix . 'philosophy-image-' . $i,
             'type' => 'image_advanced',
-            'name' => esc_html__('Изображение', 'brainworks'),
+            'name' => 'Изображение',
             'max_file_uploads' => 1,
             'max_status' => false,
         );
@@ -161,19 +161,19 @@ function projects_get_meta_box($meta_boxes)
         $philosophy_fields[] = array(
             'id' => $prefix . 'philosophy-title-' . $i,
             'type' => 'text',
-            'name' => esc_html__('Название', 'brainworks'),
+            'name' => 'Название',
         );
 
         $philosophy_fields[] = array(
             'id' => $prefix . 'philosophy-desc-' . $i,
             'type' => 'textarea',
-            'name' => esc_html__('Описание', 'brainworks'),
+            'name' => 'Описание',
         );
     }
 
     $meta_boxes[] = array(
         'id' => 'philosophy',
-        'title' => esc_html__('Философия комфорта', 'brainworks'),
+        'title' => 'Философия комфорта',
         'post_types' => array('projects'),
         'context' => 'advanced',
         'priority' => 'default',
@@ -183,7 +183,7 @@ function projects_get_meta_box($meta_boxes)
 
     $meta_boxes[] = array(
         'id' => 'visit',
-        'title' => esc_html__('Блок заявки на просмотр', 'brainworks'),
+        'title' => 'Блок заявки на просмотр',
         'post_types' => array('projects'),
         'context' => 'advanced',
         'priority' => 'default',
@@ -192,28 +192,28 @@ function projects_get_meta_box($meta_boxes)
             array(
                 'id' => $prefix . 'visit-image',
                 'type' => 'image_advanced',
-                'name' => esc_html__('Фон', 'brainworks'),
+                'name' => 'Фон',
                 'max_file_uploads' => 1,
                 'max_status' => false,
             ),
             array(
                 'id' => $prefix . 'visit-title',
                 'type' => 'textarea',
-                'name' => esc_html__('Название', 'brainworks'),
+                'name' => 'Название',
                 'placeholder' => 'Побывайте в «Балтик Хаус», чтобы:',
             ),
             array(
                 'id' => $prefix . 'visit-list',
                 'type' => 'text',
-                'name' => esc_html__('Список', 'metabox-online-generator'),
+                'name' => 'Список',
                 'size' => 75,
                 'clone' => true,
                 'sort_clone' => true,
-                'add_button' => esc_html__('Добавить еще', 'metabox-online-generator'),
+                'add_button' => 'Добавить еще',
             ),
             array(
                 'id' => $prefix . 'visit-form',
-                'name' => esc_html__('Form shortcode', 'metabox-online-generator'),
+                'name' => 'Form shortcode',
                 'type' => 'text',
             ),
 

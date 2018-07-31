@@ -16,7 +16,7 @@ function house_get_meta_box($meta_boxes)
 
     $meta_boxes[] = array(
         'id' => 'main',
-        'title' => esc_html__('Основные параметры', 'brainworks'),
+        'title' => 'Основные параметры',
         'post_types' => array('house'),
         'context' => 'advanced',
         'priority' => 'default',
@@ -25,31 +25,31 @@ function house_get_meta_box($meta_boxes)
             array(
                 'id' => $prefix . 'project',
                 'type' => 'select_advanced',
-                'name' => esc_html__('Проект', 'brainworks'),
+                'name' => 'Проект',
                 'options' => $projects,
-                'placeholder' => 'Выюерите проект к которому хотите привязать дома',
+                'placeholder' => 'Выберите проект к которому хотите привязать дома',
             ),
             array(
                 'id' => $prefix . 'status',
                 'type' => 'checkbox',
-                'name' => esc_html__('Продано', 'brainworks'),
+                'name' => 'Продано',
             ),
             array(
                 'id' => $prefix . 'type',
                 'type' => 'text',
-                'name' => esc_html__('Тип', 'brainworks'),
-                'placeholder' => esc_html__('Terrace apartments', 'brainworks'),
+                'name' => 'Тип',
+                'placeholder' => 'Terrace apartments',
             ),
             array(
                 'id' => $prefix . 'total-square',
                 'type' => 'text',
-                'name' => esc_html__('Общая площадь', 'brainworks'),
-                'placeholder' => esc_html__('131,3 м<sup>2</sup>', 'brainworks'),
+                'name' => 'Общая площадь',
+                'placeholder' => '131,3 м<sup>2</sup>',
             ),
             array(
                 'id' => $prefix . 'main-options',
                 'type' => 'fieldset_text',
-                'name' => esc_html__('Основные', 'brainworks'),
+                'name' => 'Основные',
                 'rows' => 2,
                 'options' => array(
                     'name' => 'Name',
@@ -57,12 +57,12 @@ function house_get_meta_box($meta_boxes)
                 ),
                 'clone' => true,
                 'sort_clone' => true,
-                'add_button' => esc_html__('Add more', 'brainworks'),
+                'add_button' => 'Add more',
             ),
             array(
                 'id' => $prefix . 'extra-options',
                 'type' => 'fieldset_text',
-                'name' => esc_html__('Дополнительно', 'brainworks'),
+                'name' => 'Дополнительно',
                 'rows' => 2,
                 'options' => array(
                     'name' => 'Name',
@@ -70,12 +70,12 @@ function house_get_meta_box($meta_boxes)
                 ),
                 'clone' => true,
                 'sort_clone' => true,
-                'add_button' => esc_html__('Add more', 'brainworks'),
+                'add_button' => 'Add more',
             ),
             array(
                 'id' => $prefix . 'gallery',
                 'type' => 'image_advanced',
-                'name' => esc_html__('Галерея', 'brainworks'),
+                'name' => 'Галерея',
                 'max_file_uploads' => 5,
                 'max_status' => true,
             ),
