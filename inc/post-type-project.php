@@ -106,7 +106,7 @@ function projects_get_meta_box($meta_boxes)
             'id' => $prefix . 'spec-svg-icon-' . $i,
             'type' => 'text',
             'name' => 'SVG иконка',
-            'desc' => 'SVG icons list (<b>roller, stairs, gas-pipe, electric-meter, plug, header-radiator, grill, heater, paving, bricks, facade, doors, windows, foundation, roof, gates, terrace</b>)',
+            'desc' => 'SVG icons list (<b>roller, stairs, gas-pipe, electric-meter, plug, heater-radiator, grill, heater, paving, bricks, facade, doors, windows, foundation, roof, gates, terrace</b>)',
         );
 
         $spec_fields[] = array(

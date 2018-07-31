@@ -22,6 +22,15 @@ if (function_exists('rwmb_meta')) {
         'roof' => array('width' => '35', 'height' => '35', 'color' => '#ff9f00', 'href' => 'roof'),
         'gates' => array('width' => '35', 'height' => '35', 'color' => '#ff9f00', 'href' => 'gates'),
         'terrace' => array('width' => '35', 'height' => '35', 'color' => '#ff9f00', 'href' => 'terrace'),
+        'electric-meter' => array('width' => '35', 'height' => '35', 'color' => '#ff9f00', 'href' => 'electric-meter'),
+        'gas-pipe' => array('width' => '35', 'height' => '35', 'color' => '#ff9f00', 'href' => 'gas-pipe'),
+        'grill' => array('width' => '35', 'height' => '35', 'color' => '#ff9f00', 'href' => 'grill'),
+        'heater-radiator' => array('width' => '35', 'height' => '35', 'color' => '#ff9f00', 'href' => 'heater-radiator'),
+        'heater' => array('width' => '35', 'height' => '35', 'color' => '#ff9f00', 'href' => 'heater'),
+        'paving' => array('width' => '35', 'height' => '35', 'color' => '#ff9f00', 'href' => 'paving'),
+        'plug' => array('width' => '35', 'height' => '35', 'color' => '#ff9f00', 'href' => 'plug'),
+        'roller' => array('width' => '35', 'height' => '35', 'color' => '#ff9f00', 'href' => 'roller'),
+        'stairs' => array('width' => '35', 'height' => '35', 'color' => '#ff9f00', 'href' => 'stairs'),
     );
     ?>
     <!-- Start Specification -->
