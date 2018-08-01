@@ -6,19 +6,19 @@
 			foreach ($params as $k=>$param) {
 				$params[$k] = filter_var($param, FILTER_SANITIZE_STRING);
 
-				if ($params[$k] === '') {
-					return array('status' => false, 'message' => __('Все поля должны быть заполнены!'));
+				if (in_array($k, ['name', 'tel']) && $param === '') {
+					return array('status' => false, 'message' => __('Все поля должны быть заполнены!', 'brainworks'));
 				}
 			} 
 
 			if ($params['agree'] !== 'yes') {
-				return array('status' => false, 'message' => __('Пожалуйста, подтвердите согласия на обработку данных!'));
+				return array('status' => false, 'message' => __('Пожалуйста, подтвердите согласия на обработку данных!', 'brainworks'));
 			}
 
 			// Sending email
 			
 				$email_to = get_theme_mod('bw_additional_email');
-				$email_subject = __('ОБРАТНАЯ СВЯЗЬ');
+				$email_subject = __('ОБРАТНАЯ СВЯЗЬ', 'brainworks');
 				$email_headers = array(
 					'Content-Type' => 'text/html; charset=utf-8'
 				);
@@ -29,10 +29,14 @@
 					<p>Комментарий: ' . $params['message'] . '</p>
 				';
 
-				if (wp_mail($email_to, $email_subject, $email_content, $email_headers)) {
-					return array('status' => true);
+				if ($email_to != '') {
+					if (wp_mail($email_to, $email_subject, $email_content, $email_headers)) {
+						return array('status' => true);
+					} else {
+						return array('status' => false, 'message' => __('Отправка данных не удалась! Попробуйте ещё раз.', 'brainworks'));
+					}
 				} else {
-					return array('status' => false, 'message' => __('Отправка данных не удалась! Попробуйте ещё раз.'));
+					return array('status' => true);
 				}
 
 			// Sending email end

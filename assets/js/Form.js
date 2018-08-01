@@ -26,8 +26,8 @@
 		 * @param  {Object} data Object to send
 		 * @return {Promise}     Promise with pending status
 		 */
-		const sendRequest = (url, data) => {
-			return new Promise((resolve, reject) => {
+		var sendRequest = (url, data) => {
+			return (resolve, reject) => {
 				url = url || '/';
 				data = data || {};
 
@@ -54,7 +54,7 @@
 				}
 
 				xhr.send(JSON.stringify(data));
-			});
+			}
 		}
 
 		/**
@@ -106,18 +106,30 @@
 				 * Validate data in inputs
 				 * @type {boolean}
 				 */
-				isFilled = true;
+				isFilled = true,
+				/**
+				 * @type {number}
+				 */
+				formInputsLength = formInputs.length,
+				/**
+				 * @type {HTMLInputElement}
+				 */
+				input;
 
-			for (var dataItem in formData) {
-				if (formData[dataItem] === '') {
+			for (var i = 0; i < formInputsLength; i++) {
+				input = formInputs[i];
+				if (input.value === '' && input.getAttribute('required') !== null) {
 					isFilled = false;
 					toggleAlert(formErrorContainer, 'Все поля должны быть заполнены!');
+					input.focus();
+					break;
 				}
 			}
 
 			if (isFilled === true) {
-				sendRequest(event.target.getAttribute('action'), formData)
-					.then(response => {
+				toggleAlert(formSuccessContainer, null);
+				toggleAlert(formErrorContainer, null);
+				sendRequest(event.target.getAttribute('action'), formData)(response => {
 						response = JSON.parse(response);
 						if (response.status === true) {
 							emptyInputs(formInputs);
@@ -125,10 +137,9 @@
 						} else {
 							toggleAlert(formErrorContainer, response.message);
 						}
-					})
-					.catch(error => {
+					}, error => {
 						console.error(error)
-					});
+					})
 			}
 
 		}
