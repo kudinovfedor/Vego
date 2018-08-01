@@ -106,6 +106,7 @@
                     'lat' => $project['lat'],
                     'lng' => $project['lng'],
                     'url' => get_the_permalink(),
+                    'title' => get_the_title(),
                 );
                 $latitude += $project['lat'];
                 $longitude += $project['lng'];
@@ -122,7 +123,7 @@
         <?php google_map(array(
             'latitude' => $latitude,
             'longitude' => $longitude,
-            'zoom' => 10,
+            'zoom' => get_theme_mod('bw_vego_google_map_front_page_zoom', 10),
             'marker' => array(
                 'icon' => get_template_directory_uri() . '/assets/img/marker2-without-shadow.png',
                 'locations' => array_values($coordinates),

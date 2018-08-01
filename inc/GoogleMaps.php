@@ -407,6 +407,7 @@ if (!class_exists('GoogleMaps')) {
                                 'url': iconUrl,
                             },
                             map: map,
+                            title: location.title,
                             position: {lat: parseFloat(location.lat), lng: parseFloat(location.lng)},
                         });
 
