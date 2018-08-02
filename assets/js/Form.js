@@ -17,7 +17,11 @@
 			/**
 			 * @type {HTMLDivElement} The success container to show the success message
 			 */
-			formSuccessContainer;
+			formSuccessContainer,
+			/**
+			 * @type {HTMLInputElement} Checkbox that must be checked if it exists
+			 */
+			agreeCheckbox = null;
 
 
 		/**
@@ -126,6 +130,15 @@
 				}
 			}
 
+			if (agreeCheckbox !== null) {
+				if (agreeCheckbox.checked === false) {
+					isFilled = false;
+					toggleAlert(formErrorContainer, 'Вы должны быть согласны на обработку ваших данных!');
+				} else {
+					toggleAlert(formErrorContainer, null);
+				}
+			}
+
 			if (isFilled === true) {
 				toggleAlert(formSuccessContainer, null);
 				toggleAlert(formErrorContainer, null);
@@ -134,6 +147,7 @@
 						if (response.status === true) {
 							emptyInputs(formInputs);
 							toggleAlert(formSuccessContainer, 'Вы успешно отправили данные для обратной связи!');
+							setTimeout(() => toggleAlert(formSuccessContainer, null), 10*1000);
 						} else {
 							toggleAlert(formErrorContainer, response.message);
 						}
@@ -155,6 +169,7 @@
 				formErrorContainer = form.querySelector('.alert-danger');
 				formSuccessContainer = form.querySelector('.alert-success');
 				formInputs = form.querySelectorAll('input, select, textarea');
+				agreeCheckbox = form.querySelector('input[name="agree"]');
 
 				if (formInputs) {
 					var 

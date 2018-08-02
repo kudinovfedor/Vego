@@ -20,7 +20,8 @@
 				$email_to = get_theme_mod('bw_additional_email');
 				$email_subject = __('ОБРАТНАЯ СВЯЗЬ', 'brainworks');
 				$email_headers = array(
-					'Content-Type' => 'text/html; charset=utf-8'
+					'Content-Type: text/html; charset=UTF-8',
+					'From: ' . get_bloginfo('name') . ' ' . '<'.$email_to.'>'
 				);
 				$email_content = '
 					<h1>' . $email_subject . '</h1>
