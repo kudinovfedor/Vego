@@ -81,6 +81,10 @@
         // Buy one click
         buyOneClick('.one-click', '[data-field-id="field7"]', 'h1.page-name');
 
+        if ('BrainWorksForm' in window) {
+            createBrainWorksForms('.feedback-form')
+        }
+
     });
 
     /**

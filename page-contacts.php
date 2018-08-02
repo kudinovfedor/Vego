@@ -60,15 +60,19 @@
                     <?php the_content(); ?>
                     <div class="feedback-box">
                         <div class="feedback-headline text-center text-uppercase">Обратная связь</div>
-                        <form action="./" method="post" class="feedback-form">
+                        <form action="<?php echo esc_url( home_url() . '/wp-json/brainworks/contact' ); ?>" method="post" class="feedback-form">
+                            <div class="form-row">
+                                <div class="alert alert-danger" style="display: none;"></div>
+                                <div class="alert alert-success" style="display: none;"></div>
+                            </div>
                             <div class="form-row form-columns">
                                 <div class="form-column">
                                     <input class="form-field" type="text" name="name"
-                                           placeholder="Введите Ваше имя">
+                                           placeholder="Введите Ваше имя" required>
                                 </div>
                                 <div class="form-column">
                                     <input class="form-field" type="tel" name="tel"
-                                           placeholder="Введите номер телефона">
+                                           placeholder="Введите номер телефона" required>
                                 </div>
                             </div>
                             <div class="form-row">
