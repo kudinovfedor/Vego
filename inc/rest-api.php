@@ -27,8 +27,11 @@
 					<h1>' . $email_subject . '</h1>
 					<p>Имя клиента: ' . $params['name'] . '</p>
 					<p>Номер телефона: ' . $params['tel'] . '</p>
-					<p>Комментарий: ' . $params['message'] . '</p>
 				';
+
+				if (isset($params['message'])) {
+					$email_content .= '<p>Почтовый ящик: ' . $params['message'] . '</p>';
+				}
 
 				if ($email_to != '') {
 					if (wp_mail($email_to, $email_subject, $email_content, $email_headers)) {

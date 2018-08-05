@@ -29,7 +29,7 @@ function bw_enqueues()
             true);
     }
 
-    if ( is_page_template('page-contacts.php') || is_singular('projects') ) {
+    if ( is_page_template('page-contacts.php') || is_singular() ) {
         wp_register_script('form-js', get_template_directory_uri() . '/assets/js/Form.js', array(),
         null, true);
         wp_enqueue_script('form-js');

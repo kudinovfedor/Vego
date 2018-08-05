@@ -93,8 +93,10 @@
 				inputsLength = inputs.length;
 
 			for (var i = 0; i < inputsLength; i++) {
-				inputs[i].value = '';
-				formData[inputs[i].name] = '';
+				if (inputs.type !== 'checkbox') {
+					inputs[i].value = '';
+					formData[inputs[i].name] = '';
+				}
 			}
 		}
 
