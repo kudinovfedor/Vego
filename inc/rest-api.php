@@ -2,6 +2,7 @@
 
 	if ( !function_exists('register_rest_api_route') ) {
 		function register_rest_api_route (WP_REST_Request $req) {
+
 			$params = $req->get_params();
 			foreach ($params as $k=>$param) {
 				$params[$k] = filter_var($param, FILTER_SANITIZE_STRING);
@@ -25,6 +26,7 @@
 				);
 				$email_content = '
 					<h1>' . $email_subject . '</h1>
+					<small>Страница формы: '.$req->get_header('referer').'</small>
 					<p>Имя клиента: ' . $params['name'] . '</p>
 					<p>Номер телефона: ' . $params['tel'] . '</p>
 				';
