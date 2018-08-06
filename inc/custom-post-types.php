@@ -36,16 +36,16 @@ function cptui_register_my_cpts()
     register_post_type("info", $args);
 
     /**
-     * Post Type: Проекты.
+     * Post Type: Проекти.
      */
 
     $labels = array(
-        "name" => __("Проекты", "brainworks"),
+        "name" => __("Проекти", "brainworks"),
         "singular_name" => __("Проект", "brainworks"),
     );
 
     $args = array(
-        "label" => __("Проекты", "brainworks"),
+        "label" => __("Проекти", "brainworks"),
         "labels" => $labels,
         "description" => "",
         "public" => true,
@@ -73,12 +73,12 @@ function cptui_register_my_cpts()
      */
 
     $labels = array(
-        "name" => __("Дома", "brainworks"),
-        "singular_name" => __("Дом", "brainworks"),
+        "name" => __("Будинки", "brainworks"),
+        "singular_name" => __("Будинок", "brainworks"),
     );
 
     $args = array(
-        "label" => __("Дома", "brainworks"),
+        "label" => __("Будинки", "brainworks"),
         "labels" => $labels,
         "description" => "",
         "public" => true,

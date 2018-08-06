@@ -67,13 +67,13 @@
                         </div>
                         <div class="info-footer">
                             <?php if (!empty($info['price'])) { ?>
-                                <span class="info-price d-inline-block">от
+                                <span class="info-price d-inline-block">від
                                 <span class="info-price-value"><?php echo $info['price']; ?></span>
                                 грн/1M<sup>2</sup>
                             </span>
                             <?php }
                             if (!empty($info['link'])) { ?>
-                                <a class="info-link text-uppercase" href="<?php echo $info['link']; ?>">Подробнее</a>
+                                <a class="info-link text-uppercase" href="<?php echo $info['link']; ?>">Детальніше</a>
                             <?php } ?>
                         </div>
                     </li>
@@ -118,7 +118,6 @@
             $projects_count = count($coordinates);
             $latitude = round($latitude / $projects_count, 2);
             $longitude = round($longitude / $projects_count, 2);
-            //dump($coordinates);
         } ?>
         <?php google_map(array(
             'latitude' => $latitude,
@@ -188,10 +187,10 @@
     <div class="container">
         <div class="press-centre">
             <div class="press-centre-left">
-                <h3 class="press-centre-title text-uppercase">Пресс-центр</h3>
-                <p class="press-centre-desc">Новости и акции компании</p>
+                <h3 class="press-centre-title text-uppercase">Прес-центр</h3>
+                <p class="press-centre-desc">Новини та акції компанії</p>
                 <a href="<?php the_permalink(get_option('page_for_posts')); ?>"
-                   class="button-medium button-outline press-centre-btn">Все новости</a>
+                   class="button-medium button-outline press-centre-btn">Всі новини</a>
             </div>
             <div class="press-centre-right">
                 <?php

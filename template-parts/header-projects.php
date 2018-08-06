@@ -93,14 +93,14 @@ $header_bg = has_post_thumbnail($post) ? $url : 'none'; ?>
                     <?php }
                     if (!empty($project['date'])) { ?>
                         <div class="col-md-4">
-                            <div class="highlight text-uppercase text-bold">Дата сдачи</div>
+                            <div class="highlight text-uppercase text-bold">Дата здачі</div>
                             <?php echo $project['date']; ?>
                         </div>
                     <?php }
                     if (!empty($project['price'])) { ?>
                         <div class="col-md-4">
-                            <div class="highlight text-uppercase text-bold">Стоимость м<sup>2</sup></div>
-                            от <?php echo $project['price']; ?> грн
+                            <div class="highlight text-uppercase text-bold">Вартість м<sup>2</sup></div>
+                            від <?php echo $project['price']; ?> грн
                         </div>
                     <?php } ?>
                 </div>

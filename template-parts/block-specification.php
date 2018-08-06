@@ -3,7 +3,7 @@ if (function_exists('rwmb_meta')) {
     $specification = [];
 
     $headline = rwmb_meta('project-spec-headline');
-    $headline = !empty($headline) ? $headline : 'Спецификация <span class="highlight">поселка</span>';
+    $headline = !empty($headline) ? $headline : 'Специфікація <span class="highlight">селища</span>';
 
     for ($i = 1; $i < 17; $i++) {
         $specification[] = array(

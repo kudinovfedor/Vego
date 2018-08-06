@@ -32,7 +32,7 @@
                     if (!empty($address) || !empty($time_work)) { ?>
                         <div class="box-group">
                             <i class="fas fa-map-marker-alt box-icon" aria-hidden="true"></i>
-                            <div class="box-head text-uppercase">Адрес</div>
+                            <div class="box-head text-uppercase">Адреса</div>
                             <div class="box-body">
                                 <?php echo strip_tags($address, '<br>'); ?>
                                 <br>
@@ -42,7 +42,7 @@
                     <?php } ?>
                     <div class="box-group">
                         <i class="fas fa-map-marker-alt box-icon" aria-hidden="true"></i>
-                        <div class="box-head text-uppercase">Контактная информация</div>
+                        <div class="box-head text-uppercase">Контактна інформація</div>
                         <div class="box-body mb-20">
                             <?php if (has_phones()) {
                                 foreach (get_phones() as $key => $phone) { ?>
@@ -59,7 +59,7 @@
                     </div>
                     <?php the_content(); ?>
                     <div class="feedback-box">
-                        <div class="feedback-headline text-center text-uppercase">Обратная связь</div>
+                        <div class="feedback-headline text-center text-uppercase">Зворотній зв'язок</div>
                         <form action="<?php echo esc_url( home_url() . '/wp-json/brainworks/contact' ); ?>" method="post" class="feedback-form">
                             <div class="form-row">
                                 <div class="alert alert-danger" style="display: none;"></div>
@@ -68,27 +68,27 @@
                             <div class="form-row form-columns">
                                 <div class="form-column">
                                     <input class="form-field" type="text" name="name"
-                                           placeholder="Введите Ваше имя" required>
+                                           placeholder="Введіть ваше ім'я" required>
                                 </div>
                                 <div class="form-column">
                                     <input class="form-field" type="tel" name="tel"
-                                           placeholder="Введите номер телефона" required>
+                                           placeholder="Введіть номер телефону" required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <textarea class="form-field" name="message"
-                                          placeholder="Введите текст сообщения"></textarea>
+                                          placeholder="Введіть текст повідомлення"></textarea>
                             </div>
                             <div class="form-row form-columns">
                                 <div class="form-column pull-right">
                                     <label class="custom-checkbox">
                                         <input type="checkbox" name="agree" value="yes" checked>
                                         <span class="checkbox"></span>
-                                        Я согласен на обработку моих персональных данных
+                                        Я згоден на обробку моїх персональних даних
                                     </label>
                                 </div>
                                 <div class="form-column">
-                                    <button class="button-medium" type="submit">Отправить</button>
+                                    <button class="button-medium" type="submit">Відправити</button>
                                 </div>
                             </div>
                         </form>

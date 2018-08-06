@@ -36,25 +36,24 @@ if (function_exists('rwmb_meta')) {
             )); ?>
         </div>
         <div class="container location-box">
-            <h2 class="text-center section-title">Рассположение <span class="highlight">обьекта</span></h2>
+            <h2 class="text-center section-title">Розташування <span class="highlight">об'єкта</span></h2>
             <div class="feedback-box">
                 <?php if (!empty($project['address'])) { ?>
                     <div class="box-group">
                         <i class="fas fa-map-marker-alt box-icon" aria-hidden="true"></i>
-                        <div class="box-head text-uppercase">Адрес</div>
+                        <div class="box-head text-uppercase">Адреса</div>
                         <div class="box-body"><?php echo $project['address']; ?></div>
                     </div>
                 <?php }
                 if (!empty($project['distance'])) { ?>
                     <div class="box-group">
                         <i class="fas fa-car box-icon" aria-hidden="true"></i>
-                        <div class="box-head text-uppercase">Расстояние</div>
+                        <div class="box-head text-uppercase">Відстань</div>
                         <div class="box-body"><?php echo $project['distance']; ?></div>
                     </div>
                 <?php } ?>
                 <div class="box-group mb-0">
-                    <a class="button-medium button-outline" href="<?php echo esc_url($google_url); ?>" target="_blank">Проложить
-                        маршрут</a>
+                    <a class="button-medium button-outline" href="<?php echo esc_url($google_url); ?>" target="_blank">Прокласти маршрут</a>
                 </div>
             </div>
         </div>

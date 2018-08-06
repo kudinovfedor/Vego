@@ -67,7 +67,7 @@
         scrollTop('.js-scroll-top');
 
         // On Copy
-        //$(document).on('copy', addLink);
+        $(document).on('copy', addLink);
 
         // Hamburger Menu
         // hamburgerMenu('.js-menu', '.js-hamburger', '.js-menu-close');

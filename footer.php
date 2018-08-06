@@ -12,7 +12,7 @@
         <div class="footer-copyright ">
             <?php /* <?php echo date('Y'); ?> &copy; <?php bloginfo('name'); ?>
             Все права защищены */ ?>
-            Сайт разработан <a href="https://brainworks.pro/" target="_blank" rel="noopener">BRAIN WORKS</a> <?php echo date('Y'); ?> &copy; VEGO ВСЕ ПРАВА ЗАЩИЩЕНЫ
+            Сайт розроблений <a href="https://brainworks.pro/" target="_blank" rel="noopener">BRAIN WORKS</a> <?php echo date('Y'); ?> &copy; VEGO ВСІ ПРАВА ЗАХИЩЕНІ
         </div>
     </div>
 </footer>
