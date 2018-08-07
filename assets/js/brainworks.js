@@ -9,6 +9,7 @@
         var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         var postSlider = $('.js-post-slider');
         var houseSlider = $('.js-house-gallery');
+        var houseThumbnail = $('.house-thumbnail');
 
         if (postSlider.length && postSlider.find('.blog-item').length > 2) {
             postSlider.slick({
@@ -49,6 +50,15 @@
             });
         }
 
+        if(houseThumbnail.length) {
+            houseThumbnail.zoom({
+                'on': 'mouseover',
+                'duration': 120,
+                'magnify': 1,
+                'touch': true,
+            });
+        }
+
         if (isMobile) {
             html.addClass('is-mobile');
         }
@@ -67,7 +77,7 @@
         scrollTop('.js-scroll-top');
 
         // On Copy
-        //$(document).on('copy', addLink);
+        $(document).on('copy', addLink);
 
         // Hamburger Menu
         // hamburgerMenu('.js-menu', '.js-hamburger', '.js-menu-close');
@@ -269,7 +279,7 @@
     function addLink() {
         var body = document.body || document.getElementsByTagName('body')[0];
         var selection = window.getSelection();
-        var page_link = '\n Источник: ' + document.location.href;
+        var page_link = '\n За матеріалами: ' + document.location.href;
         var copy_text = selection + page_link;
         var div = document.createElement('div');
 

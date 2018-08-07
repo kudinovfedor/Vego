@@ -28,7 +28,7 @@ if (function_exists('rwmb_meta')) {
             </div>
             <div class="application-form">
                 <div class="feedback-box">
-                    <div class="feedback-headline text-center text-uppercase">Заявка на просмотр</div>
+                    <div class="feedback-headline text-center text-uppercase">Заявка на перегляд</div>
                     <?php if (empty($visit['form'])) { ?>
                         <form action="<?php echo esc_url( home_url() . '/wp-json/brainworks/contact' ); ?>" method="post" class="feedback-form">
                             <div class="form-row">
@@ -36,19 +36,19 @@ if (function_exists('rwmb_meta')) {
                                 <div class="alert alert-success" style="display: none;"></div>
                             </div>
                             <div class="form-row">
-                                <input class="form-field" type="text" name="name" placeholder="Введите Ваше имя">
+                                <input class="form-field" type="text" name="name" placeholder="Введіть ваше ім'я">
                             </div>
                             <div class="form-row">
-                                <input class="form-field" type="tel" name="tel" placeholder="Введите номер телефона">
+                                <input class="form-field" type="tel" name="tel" placeholder="Введіть номер телефону">
                             </div>
                             <div class="form-row">
                                 <label class="custom-checkbox">
                                     <input type="checkbox" name="agree" value="yes" checked="">
                                     <span class="checkbox"></span>
-                                    Я согласен на обработку моих персональных данных
+                                    Я згоден на обробку моїх персональних даних
                                 </label>
                             </div>
-                            <button class="button-medium" type="submit">Отправить</button>
+                            <button class="button-medium" type="submit">Відправити</button>
                         </form>
                     <?php } else {
                         echo do_shortcode($visit['form']);

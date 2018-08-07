@@ -23,7 +23,6 @@
                             'distance' => esc_html(rwmb_meta('project-distance')),
                         );
                     }
-                    //dump($project);
                     ?>
                     <article id="project-<?php the_ID() ?>" <?php post_class('project-item') ?>>
                         <?php if (has_post_thumbnail()) {
@@ -50,12 +49,12 @@
                             <div class="project-side-left">
                                 <?php if (!empty($project['price'])) { ?>
                                     <span class="project-price">
-                                        от
+                                        від
                                         <span class="project-price-value text-bold"><?php echo $project['price']; ?></span>
                                         грн/м<sup>2</sup>
                                     </span>
                                 <?php } ?>
-                                <a class="project-link button-medium button-outline" href="<?php the_permalink(); ?>">Смотреть проект</a>
+                                <a class="project-link button-medium button-outline" href="<?php the_permalink(); ?>">Дивитися проект</a>
                             </div>
                             <div class="project-side-right">
                                 <ul class="project-details">
@@ -63,13 +62,13 @@
                                         <li>Статус: <span><?php echo $project['status']; ?></span></li>
                                     <?php } ?>
                                     <?php if (!empty($project['date'])) { ?>
-                                        <li>Дата сдачи: <span><?php echo $project['date']; ?></span></li>
+                                        <li>Дата здачі: <span><?php echo $project['date']; ?></span></li>
                                     <?php } ?>
                                     <?php if (!empty($project['address'])) { ?>
-                                        <li>Адрес: <span><?php echo $project['address']; ?></span></li>
+                                        <li>Адреса: <span><?php echo $project['address']; ?></span></li>
                                     <?php } ?>
                                     <?php if (!empty($project['distance'])) { ?>
-                                        <li>Расстояние: <span><?php echo $project['distance']; ?></span></li>
+                                        <li>Відстань: <span><?php echo $project['distance']; ?></span></li>
                                     <?php } ?>
                                 </ul>
                             </div>

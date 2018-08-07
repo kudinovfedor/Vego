@@ -23,7 +23,10 @@ function bw_enqueues()
         null, true);
     wp_enqueue_script('slick-js');
 
-    if ( ! WP_DEBUG) {
+    wp_register_script('zoom-js', get_template_directory_uri() . '/assets/js/zoom.min.js', array(),
+        null, true);
+
+    if (!WP_DEBUG) {
         wp_deregister_script('jquery');
         wp_register_script('jquery', get_template_directory_uri() . '/assets/js/jquery-1.12.4.min.js', array(), null,
             true);
@@ -31,8 +34,12 @@ function bw_enqueues()
 
     if ( is_page_template('page-contacts.php') || is_singular() ) {
         wp_register_script('form-js', get_template_directory_uri() . '/assets/js/Form.js', array(),
-        null, true);
+            null, true);
         wp_enqueue_script('form-js');
+    }
+
+    if ('projects' === get_post_type() && is_single()) {
+        wp_enqueue_script('zoom-js');
     }
 
     wp_register_script('brainworks-js', get_template_directory_uri() . '/assets/js/brainworks.js', array('jquery'),

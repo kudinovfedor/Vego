@@ -2,7 +2,7 @@
 <div class="duplexes">
     <div class="container">
         <?php
-        $headline = 'Дуплексы';
+        $headline = 'Дуплекси';
 
         if (function_exists('rwmb_meta')) {
             $headline = rwmb_meta('project-house-headline');
@@ -47,7 +47,7 @@
                             if (!empty($house['square'])) { ?>
                                 <div class="house-square text-right">
                                     <span class="highlight"><?php echo $house['square']; ?></span>
-                                    Общая площадь
+                                    Загальна площа
                                 </div>
                             <?php } ?>
                         </div>
@@ -63,7 +63,9 @@
                                     <div class="js-house-gallery">
                                         <?php foreach ($house['gallery'] as $item) { ?>
                                             <span class="house-thumbnail"
-                                                  style="background-image: url('<?php echo esc_url($item['full_url']); ?>');"></span>
+                                                  style="background-image: url('<?php echo esc_url($item['full_url']); ?>');">
+                                                <img src="<?php echo esc_url($item['full_url']); ?>" alt="" style="display: none;">
+                                            </span>
                                         <?php } ?>
                                     </div>
                                 <?php } ?>
@@ -73,8 +75,7 @@
                                 <div class="house-content">
                                     <?php the_content(); ?>
                                     <?php if (!$status) { ?>
-                                        <button class="button-medium js-house-price" type="button">Узнать стоимость
-                                        </button>
+                                        <button class="button-medium js-house-price" type="button">Дізнатися вартість</button>
                                     <?php } ?>
                                 </div>
                                 <div class="house-details">
@@ -89,9 +90,7 @@
                                         </ul>
                                     <?php }
                                     if (!empty($house['extra-options'])) { ?>
-                                        <div class="text-uppercase text-bold mb-10" style="letter-spacing: 2.1px;">
-                                            Дополнительно
-                                        </div>
+                                        <div class="text-uppercase text-bold mb-10" style="letter-spacing: 2.1px;">Додатково</div>
                                         <ul>
                                             <?php foreach ($house['extra-options'] as $item) { ?>
                                                 <li>

@@ -1096,7 +1096,7 @@
     }
 
     &-current {
-        color: #fff;
+        color: #e5e5e5;
         font-size: 60px;
     }
 
@@ -1430,6 +1430,34 @@
                 display: inline-block;
                 width: 105px;
             }
+        }
+    }
+}
+
+.ls-wp-container {
+    &.ls-v6 .ls-bottom-nav-wrapper {
+        top: -80px;
+    }
+
+    &.ls-v6 .ls-bottom-slidebuttons a,
+    &.ls-v6 .ls-nav-sides {
+        margin: 0 9px !important;
+        width: 11px !important;
+        height: 11px !important;
+    }
+
+    &.ls-v6 .ls-bottom-slidebuttons a {
+        border-radius: 50%;
+        background-color: #ff9f00 !important;
+        border: 0 solid #ff9f00 !important;
+
+        &:hover {
+            border: 0 solid #ff9f00 !important;
+        }
+
+        &.ls-nav-active {
+            background-color: #fff !important;
+            border: 0 solid #fff !important;
         }
     }
 }

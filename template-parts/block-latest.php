@@ -1,5 +1,5 @@
 <div class="blog-latest">
-    <h2 class="text-center blog-headline">Актуальные <span>новости</span></h2>
+    <h2 class="text-center blog-headline">Актуальні <span>новини</span></h2>
     <?php
     $args = array(
         'post_type' => 'post',

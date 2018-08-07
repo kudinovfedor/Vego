@@ -368,6 +368,7 @@ function bw_customize_register($wp_customize)
         'priority' => 100,
     ));
 
+    $wp_customize->add_setting('bw_vego_google_map_front_page_zoom', array('default' => 10));
     $wp_customize->add_setting('bw_vego_live_title', array('default' => ''));
     $wp_customize->add_setting('bw_vego_live_desc', array('default' => ''));
 
@@ -379,6 +380,18 @@ function bw_customize_register($wp_customize)
     $wp_customize->add_setting('bw_vego_list_item-desc-3', array('default' => ''));
     $wp_customize->add_setting('bw_vego_list_item-value-4', array('default' => ''));
     $wp_customize->add_setting('bw_vego_list_item-desc-4', array('default' => ''));
+
+    $wp_customize->add_control('bw_vego_google_map_front_page_zoom', array(
+        'label' => 'Google Map - Zoom level (Front Page)',
+        'section' => 'bw_vego',
+        'settings' => 'bw_vego_google_map_front_page_zoom',
+        'type' => 'number',
+        'input_attrs' => array(
+            'min' => 0,
+            'max' => 20,
+            'step' => 1,
+        ),
+    ));
 
     $wp_customize->add_control('bw_vego_live_title', array(
         'label' => 'Front, after projects map (title)',

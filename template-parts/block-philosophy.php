@@ -2,7 +2,7 @@
 if (function_exists('rwmb_meta')) {
 
     $headline = rwmb_meta('project-philosophy-headline');
-    $headline = !empty($headline) ? $headline : 'Философия <span class="highlight">комфорта</span>';
+    $headline = !empty($headline) ? $headline : 'Філософія <span class="highlight">комфорту</span>';
 
     $philosophy = [];
     for ($i = 1; $i < 9; $i++) {

@@ -1,5 +1,5 @@
 <div class="share text-uppercase">
-    <span class="share-text">Поделиться</span>
+    <span class="share-text">Поділитися</span>
     <?php $share = array(
         'twitter' => sprintf('https://twitter.com/intent/tweet?url={%s}&text={%s}', get_the_permalink(),
             get_the_title()),

@@ -3907,7 +3907,7 @@ img { display: inline-block; vertical-align: middle; max-width: 100%; height: au
 
 .gallery-current, .gallery-total { display: inline-block; line-height: 50px; }
 
-.gallery-current { color: #fff; font-size: 60px; }
+.gallery-current { color: #e5e5e5; font-size: 60px; }
 
 .gallery-preview { background-color: #fbf9f6; -webkit-box-shadow: 0 8px 30px rgba(43, 27, 0, 0.45); box-shadow: 0 8px 30px rgba(43, 27, 0, 0.45); }
 
@@ -4014,6 +4014,16 @@ img { display: inline-block; vertical-align: middle; max-width: 100%; height: au
 .house-details li { font-size: 12px; line-height: 1.5; margin-bottom: 10px; }
 
 .house-details li span { display: inline-block; width: 105px; }
+
+.ls-wp-container.ls-v6 .ls-bottom-nav-wrapper { top: -80px; }
+
+.ls-wp-container.ls-v6 .ls-bottom-slidebuttons a, .ls-wp-container.ls-v6 .ls-nav-sides { margin: 0 9px !important; width: 11px !important; height: 11px !important; }
+
+.ls-wp-container.ls-v6 .ls-bottom-slidebuttons a { border-radius: 50%; background-color: #ff9f00 !important; border: 0 solid #ff9f00 !important; }
+
+.ls-wp-container.ls-v6 .ls-bottom-slidebuttons a:hover { border: 0 solid #ff9f00 !important; }
+
+.ls-wp-container.ls-v6 .ls-bottom-slidebuttons a.ls-nav-active { background-color: #fff !important; border: 0 solid #fff !important; }
 
 @media only screen and (max-width: 989px) { .house-list { padding-left: 0; }
   .house-body { padding-left: 0; }
