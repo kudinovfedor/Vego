@@ -63,7 +63,9 @@
                                     <div class="js-house-gallery">
                                         <?php foreach ($house['gallery'] as $item) { ?>
                                             <span class="house-thumbnail"
-                                                  style="background-image: url('<?php echo esc_url($item['full_url']); ?>');"></span>
+                                                  style="background-image: url('<?php echo esc_url($item['full_url']); ?>');">
+                                                <img src="<?php echo esc_url($item['full_url']); ?>" alt="" style="display: none;">
+                                            </span>
                                         <?php } ?>
                                     </div>
                                 <?php } ?>
