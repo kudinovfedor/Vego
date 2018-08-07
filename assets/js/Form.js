@@ -126,7 +126,7 @@
 				input = formInputs[i];
 				if (input.value === '' && input.getAttribute('required') !== null) {
 					isFilled = false;
-					toggleAlert(formErrorContainer, 'Все поля должны быть заполнены!');
+					toggleAlert(formErrorContainer, 'Всі поля повинні бути заповнені!');
 					input.focus();
 					break;
 				}
@@ -135,7 +135,7 @@
 			if (agreeCheckbox !== null) {
 				if (agreeCheckbox.checked === false) {
 					isFilled = false;
-					toggleAlert(formErrorContainer, 'Вы должны быть согласны на обработку ваших данных!');
+					toggleAlert(formErrorContainer, 'Будь ласка, підтвердіть згоду на обробку даних!');
 				} else {
 					toggleAlert(formErrorContainer, null);
 				}
@@ -148,7 +148,7 @@
 						response = JSON.parse(response);
 						if (response.status === true) {
 							emptyInputs(formInputs);
-							toggleAlert(formSuccessContainer, 'Вы успешно отправили данные для обратной связи!');
+							toggleAlert(formSuccessContainer, 'Ви успішно відправили дані для зворотнього зв\'язку!');
 							setTimeout(() => toggleAlert(formSuccessContainer, null), 10*1000);
 						} else {
 							toggleAlert(formErrorContainer, response.message);

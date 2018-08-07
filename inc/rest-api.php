@@ -8,12 +8,12 @@
 				$params[$k] = filter_var($param, FILTER_SANITIZE_STRING);
 
 				if (in_array($k, ['name', 'tel']) && $param === '') {
-					return array('status' => false, 'message' => __('Все поля должны быть заполнены!', 'brainworks'));
+					return array('status' => false, 'message' => __('Всі поля повинні бути заповнені!', 'brainworks'));
 				}
 			} 
 
 			if ($params['agree'] !== 'yes') {
-				return array('status' => false, 'message' => __('Пожалуйста, подтвердите согласия на обработку данных!', 'brainworks'));
+				return array('status' => false, 'message' => __('Будь ласка, підтвердіть згоду на обробку даних!', 'brainworks'));
 			}
 
 			// Sending email
@@ -39,7 +39,7 @@
 					if (wp_mail($email_to, $email_subject, $email_content, $email_headers)) {
 						return array('status' => true);
 					} else {
-						return array('status' => false, 'message' => __('Отправка данных не удалась! Попробуйте ещё раз.', 'brainworks'));
+						return array('status' => false, 'message' => __('Відправка даних не вдалася! Спробуйте ще раз.', 'brainworks'));
 					}
 				} else {
 					return array('status' => true);
