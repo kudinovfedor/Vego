@@ -30,7 +30,11 @@ if (function_exists('rwmb_meta')) {
                 <div class="feedback-box">
                     <div class="feedback-headline text-center text-uppercase">Заявка на перегляд</div>
                     <?php if (empty($visit['form'])) { ?>
-                        <form action="./" method="post" class="feedback-form">
+                        <form action="<?php echo esc_url( home_url() . '/wp-json/brainworks/contact' ); ?>" method="post" class="feedback-form">
+                            <div class="form-row">
+                                <div class="alert alert-danger" style="display: none;"></div>
+                                <div class="alert alert-success" style="display: none;"></div>
+                            </div>
                             <div class="form-row">
                                 <input class="form-field" type="text" name="name" placeholder="Введіть ваше ім'я">
                             </div>

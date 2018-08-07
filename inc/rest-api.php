@@ -2,17 +2,18 @@
 
 	if ( !function_exists('register_rest_api_route') ) {
 		function register_rest_api_route (WP_REST_Request $req) {
+
 			$params = $req->get_params();
 			foreach ($params as $k=>$param) {
 				$params[$k] = filter_var($param, FILTER_SANITIZE_STRING);
 
 				if (in_array($k, ['name', 'tel']) && $param === '') {
-					return array('status' => false, 'message' => __('Все поля должны быть заполнены!', 'brainworks'));
+					return array('status' => false, 'message' => __('Всі поля повинні бути заповнені!', 'brainworks'));
 				}
 			} 
 
 			if ($params['agree'] !== 'yes') {
-				return array('status' => false, 'message' => __('Пожалуйста, подтвердите согласия на обработку данных!', 'brainworks'));
+				return array('status' => false, 'message' => __('Будь ласка, підтвердіть згоду на обробку даних!', 'brainworks'));
 			}
 
 			// Sending email
@@ -20,20 +21,25 @@
 				$email_to = get_theme_mod('bw_additional_email');
 				$email_subject = __('ОБРАТНАЯ СВЯЗЬ', 'brainworks');
 				$email_headers = array(
-					'Content-Type' => 'text/html; charset=utf-8'
+					'Content-Type: text/html; charset=UTF-8',
+					'From: ' . get_bloginfo('name') . ' ' . '<'.$email_to.'>'
 				);
 				$email_content = '
 					<h1>' . $email_subject . '</h1>
+					<small>Страница формы: '.$req->get_header('referer').'</small>
 					<p>Имя клиента: ' . $params['name'] . '</p>
 					<p>Номер телефона: ' . $params['tel'] . '</p>
-					<p>Комментарий: ' . $params['message'] . '</p>
 				';
+
+				if (isset($params['message'])) {
+					$email_content .= '<p>Почтовый ящик: ' . $params['message'] . '</p>';
+				}
 
 				if ($email_to != '') {
 					if (wp_mail($email_to, $email_subject, $email_content, $email_headers)) {
 						return array('status' => true);
 					} else {
-						return array('status' => false, 'message' => __('Отправка данных не удалась! Попробуйте ещё раз.', 'brainworks'));
+						return array('status' => false, 'message' => __('Відправка даних не вдалася! Спробуйте ще раз.', 'brainworks'));
 					}
 				} else {
 					return array('status' => true);

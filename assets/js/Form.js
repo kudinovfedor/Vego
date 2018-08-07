@@ -17,7 +17,11 @@
 			/**
 			 * @type {HTMLDivElement} The success container to show the success message
 			 */
-			formSuccessContainer;
+			formSuccessContainer,
+			/**
+			 * @type {HTMLInputElement} Checkbox that must be checked if it exists
+			 */
+			agreeCheckbox = null;
 
 
 		/**
@@ -89,8 +93,10 @@
 				inputsLength = inputs.length;
 
 			for (var i = 0; i < inputsLength; i++) {
-				inputs[i].value = '';
-				formData[inputs[i].name] = '';
+				if (inputs.type !== 'checkbox') {
+					inputs[i].value = '';
+					formData[inputs[i].name] = '';
+				}
 			}
 		}
 
@@ -120,9 +126,18 @@
 				input = formInputs[i];
 				if (input.value === '' && input.getAttribute('required') !== null) {
 					isFilled = false;
-					toggleAlert(formErrorContainer, 'Все поля должны быть заполнены!');
+					toggleAlert(formErrorContainer, 'Всі поля повинні бути заповнені!');
 					input.focus();
 					break;
+				}
+			}
+
+			if (agreeCheckbox !== null) {
+				if (agreeCheckbox.checked === false) {
+					isFilled = false;
+					toggleAlert(formErrorContainer, 'Будь ласка, підтвердіть згоду на обробку даних!');
+				} else {
+					toggleAlert(formErrorContainer, null);
 				}
 			}
 
@@ -133,7 +148,8 @@
 						response = JSON.parse(response);
 						if (response.status === true) {
 							emptyInputs(formInputs);
-							toggleAlert(formSuccessContainer, 'Вы успешно отправили данные для обратной связи!');
+							toggleAlert(formSuccessContainer, 'Ви успішно відправили дані для зворотнього зв\'язку!');
+							setTimeout(() => toggleAlert(formSuccessContainer, null), 10*1000);
 						} else {
 							toggleAlert(formErrorContainer, response.message);
 						}
@@ -155,6 +171,7 @@
 				formErrorContainer = form.querySelector('.alert-danger');
 				formSuccessContainer = form.querySelector('.alert-success');
 				formInputs = form.querySelectorAll('input, select, textarea');
+				agreeCheckbox = form.querySelector('input[name="agree"]');
 
 				if (formInputs) {
 					var 
