@@ -18,7 +18,7 @@
 
 			// Sending email
 			
-				$email_to = get_theme_mod('bw_additional_email');
+				$email_to = get_option('admin_email');
 				$email_subject = __('ОБРАТНАЯ СВЯЗЬ', 'brainworks');
 				$email_headers = array(
 					'Content-Type: text/html; charset=UTF-8',
@@ -35,7 +35,7 @@
 					$email_content .= '<p>Почтовый ящик: ' . $params['message'] . '</p>';
 				}
 
-				if ($email_to != '') {
+				if ($email_to) {
 					if (wp_mail($email_to, $email_subject, $email_content, $email_headers)) {
 						return array('status' => true);
 					} else {
