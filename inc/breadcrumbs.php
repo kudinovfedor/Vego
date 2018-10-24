@@ -24,7 +24,7 @@ if (!class_exists('Kama_Breadcrumbs')) {
 
     // Локализация
     static $l10n = array(
-      'home' => 'Главная',
+      'home' => 'Головна',
       'paged' => 'Страница %d',
       '_404' => 'Ошибка 404',
       'search' => 'Результаты поиска по запросу - <b>%s</b>',

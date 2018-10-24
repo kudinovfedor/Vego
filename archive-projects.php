@@ -16,12 +16,16 @@
                         $project = array(
                             'logo' => rwmb_meta('project-logo', array('size' => 'thumbnail', 'limit' => 1)),
                             'type' => esc_html(rwmb_meta('project-type')),
-                            'price' => esc_html(number_format((float)rwmb_meta('project-price'), 0, '.', ' ')),
+                            'price' => '',
                             'date' => esc_html(rwmb_meta('project-completion-date')),
                             'status' => esc_html(rwmb_meta('project-status')),
                             'address' => esc_html(rwmb_meta('project-address')),
                             'distance' => esc_html(rwmb_meta('project-distance')),
                         );
+
+                        if(!empty(rwmb_meta('project-price'))) {
+                            $project['price'] = esc_html((float)number_format(rwmb_meta('project-price'), 0, '.', ' '));
+                        }
                     }
                     ?>
                     <article id="project-<?php the_ID() ?>" <?php post_class('project-item') ?>>
@@ -51,7 +55,7 @@
                                     <span class="project-price">
                                         від
                                         <span class="project-price-value text-bold"><?php echo $project['price']; ?></span>
-                                        грн/м<sup>2</sup>
+                                        USD/м<sup>2</sup>
                                     </span>
                                 <?php } ?>
                                 <a class="project-link button-medium button-outline" href="<?php the_permalink(); ?>">Дивитися проект</a>

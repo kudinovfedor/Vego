@@ -21,13 +21,15 @@ gulp.task('sass', () => {
         // .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'compact', // nested, expanded, compact, compressed
-            precision: 5,
-            sourceComments: false,
+            includePaths: [`assets/sass`],
+            indentType: 'space',
+            indentWidth: 2,
             linefeed: 'crlf',
+            sourceComments: false,
         }).on('error', sass.logError))
         // .pipe(sourcemaps.write('/'))
         .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
+            browsers: ['last 3 versions'],
             cascade: false
         }))
         .pipe(gulp.dest('./'));

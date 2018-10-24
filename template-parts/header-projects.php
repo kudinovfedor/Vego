@@ -65,10 +65,14 @@ $header_bg = has_post_thumbnail($post) ? $url : 'none'; ?>
             $project = array(
                 'logo' => rwmb_meta('project-logo', array('size' => 'thumbnail', 'limit' => 1)),
                 'type' => esc_html(rwmb_meta('project-type')),
-                'price' => esc_html(number_format((float)rwmb_meta('project-price'), 0, '.', ' ')),
+                'price' => '',
                 'date' => esc_html(rwmb_meta('project-completion-date')),
                 'status' => esc_html(rwmb_meta('project-status')),
             );
+
+            if(!empty(rwmb_meta('project-price'))) {
+                $project['price'] = esc_html((float)number_format(rwmb_meta('project-price'), 0, '.', ' '));
+            }
             ?>
             <div class="container">
                 <div class="text-center">
@@ -100,7 +104,7 @@ $header_bg = has_post_thumbnail($post) ? $url : 'none'; ?>
                     if (!empty($project['price'])) { ?>
                         <div class="col-md-4">
                             <div class="highlight text-uppercase text-bold">Вартість м<sup>2</sup></div>
-                            від <?php echo $project['price']; ?> грн
+                            від <?php echo $project['price']; ?> USD
                         </div>
                     <?php } ?>
                 </div>

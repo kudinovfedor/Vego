@@ -382,7 +382,7 @@ function bw_customize_register($wp_customize)
     $wp_customize->add_setting('bw_vego_list_item-desc-4', array('default' => ''));
 
     $wp_customize->add_control('bw_vego_google_map_front_page_zoom', array(
-        'label' => 'Google Map - Zoom level (Front Page)',
+        'label' => 'Google Map Front Page Zoom level',
         'section' => 'bw_vego',
         'settings' => 'bw_vego_google_map_front_page_zoom',
         'type' => 'number',

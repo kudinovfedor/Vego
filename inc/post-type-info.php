@@ -24,7 +24,7 @@ function fk_info_get_meta_box($meta_boxes)
             ),
             array(
                 'id' => $prefix . 'price',
-                'type' => 'number',
+                'type' => 'text',
                 'name' => 'Price',
             ),
             array(

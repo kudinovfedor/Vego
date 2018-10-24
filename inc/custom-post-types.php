@@ -73,12 +73,12 @@ function cptui_register_my_cpts()
      */
 
     $labels = array(
-        "name" => __("Будинки", "brainworks"),
-        "singular_name" => __("Будинок", "brainworks"),
+        "name" => __("Дома", "brainworks"),
+        "singular_name" => __("Дом", "brainworks"),
     );
 
     $args = array(
-        "label" => __("Будинки", "brainworks"),
+        "label" => __("Дома", "brainworks"),
         "labels" => $labels,
         "description" => "",
         "public" => true,

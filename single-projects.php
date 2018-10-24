@@ -6,7 +6,7 @@
     $project = array(
         'logo' => rwmb_meta('project-logo', array('size' => 'thumbnail', 'limit' => 1)),
         'type' => esc_html(rwmb_meta('project-type')),
-        'price' => esc_html(number_format((float)rwmb_meta('project-price'), 0, '.', ' ')),
+        'price' => '',
         'date' => esc_html(rwmb_meta('project-completion-date')),
         'status' => esc_html(rwmb_meta('project-status')),
         'address' => esc_html(rwmb_meta('project-address')),
@@ -15,6 +15,10 @@
         'longitude' => esc_html(rwmb_meta('project-longitude')),
         'gallery' => rwmb_meta('project-gallery'),
     );
+
+    if(!empty(rwmb_meta('project-price'))) {
+        $project['price'] = esc_html((float)number_format(rwmb_meta('project-price'), 0, '.', ' '));
+    }
     ?>
 
     <?php get_template_part('template-parts/block', 'specification'); ?>

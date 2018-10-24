@@ -16,11 +16,14 @@
                     $query->the_post();
 
                     $info = array();
+                    $info['price'] = '';
 
                     if (function_exists('rwmb_meta')) {
                         $info['city'] = esc_html(rwmb_meta('info-city'));
                         $info['link'] = esc_url(rwmb_meta('info-link'));
-                        $info['price'] = esc_html(number_format(rwmb_meta('info-price'), 0, '.', ' '));
+                        if(!empty(rwmb_meta('info-price'))) {
+                            $info['price'] = esc_html((float)number_format(rwmb_meta('info-price'), 0, '.', ' '));
+                        }
                         $info['labels'] = array(
                             'blue' => rwmb_meta('info-label-blue'),
                             'green' => rwmb_meta('info-label-green'),
@@ -69,7 +72,7 @@
                             <?php if (!empty($info['price'])) { ?>
                                 <span class="info-price d-inline-block">від
                                 <span class="info-price-value"><?php echo $info['price']; ?></span>
-                                грн/1M<sup>2</sup>
+                                USD/1M<sup>2</sup>
                             </span>
                             <?php }
                             if (!empty($info['link'])) { ?>
