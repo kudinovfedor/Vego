@@ -72,7 +72,7 @@
                             <?php if (!empty($info['price'])) { ?>
                                 <span class="info-price d-inline-block">від
                                 <span class="info-price-value"><?php echo $info['price']; ?></span>
-                                USD/1M<sup>2</sup>
+                                USD
                             </span>
                             <?php }
                             if (!empty($info['link'])) { ?>

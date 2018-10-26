@@ -55,7 +55,7 @@
                                     <span class="project-price">
                                         від
                                         <span class="project-price-value text-bold"><?php echo $project['price']; ?></span>
-                                        USD/м<sup>2</sup>
+                                        USD
                                     </span>
                                 <?php } ?>
                                 <a class="project-link button-medium button-outline" href="<?php the_permalink(); ?>">Дивитися проект</a>

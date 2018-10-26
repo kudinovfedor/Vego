@@ -103,7 +103,7 @@ $header_bg = has_post_thumbnail($post) ? $url : 'none'; ?>
                     <?php }
                     if (!empty($project['price'])) { ?>
                         <div class="col-md-4">
-                            <div class="highlight text-uppercase text-bold">Вартість м<sup>2</sup></div>
+                            <div class="highlight text-uppercase text-bold">Вартість</div>
                             від <?php echo $project['price']; ?> USD
                         </div>
                     <?php } ?>
