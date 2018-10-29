@@ -71,7 +71,7 @@ $header_bg = has_post_thumbnail($post) ? $url : 'none'; ?>
             );
 
             if(!empty(rwmb_meta('project-price'))) {
-                $project['price'] = esc_html((float)number_format(rwmb_meta('project-price'), 0, '.', ' '));
+                $project['price'] = esc_html(number_format((float)rwmb_meta('project-price'), 0, '.', ' '));
             }
             ?>
             <div class="container">

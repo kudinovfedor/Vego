@@ -22,7 +22,7 @@
                         $info['city'] = esc_html(rwmb_meta('info-city'));
                         $info['link'] = esc_url(rwmb_meta('info-link'));
                         if(!empty(rwmb_meta('info-price'))) {
-                            $info['price'] = esc_html((float)number_format(rwmb_meta('info-price'), 0, '.', ' '));
+                            $info['price'] = esc_html(number_format((float)rwmb_meta('info-price'), 0, '.', ' '));
                         }
                         $info['labels'] = array(
                             'blue' => rwmb_meta('info-label-blue'),
