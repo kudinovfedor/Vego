@@ -479,6 +479,7 @@ function bw_customize_register($wp_customize)
     $wp_customize->add_setting('bw_additional_address', array('default' => ''));
     $wp_customize->add_setting('bw_additional_time_work', array('default' => ''));
     $wp_customize->add_setting('bw_additional_email', array('default' => ''));
+    $wp_customize->add_setting('bw_additional_contact_emails', array('default' => ''));
 
     $wp_customize->add_control('bw_additional_address', array(
         'label' => 'Address',
@@ -499,6 +500,13 @@ function bw_customize_register($wp_customize)
         'section' => 'bw_additional',
         'settings' => 'bw_additional_email',
         'type' => 'email',
+    ));
+
+    $wp_customize->add_control('bw_additional_contact_emails', array(
+        'label' => 'Form emails (csv format)',
+        'section' => 'bw_additional',
+        'settings' => 'bw_additional_contact_emails',
+        'type' => 'text',
     ));
 
     $wp_customize->add_control('bw_additional_skype', array(
