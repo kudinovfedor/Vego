@@ -20,7 +20,7 @@
 			
 				$email_to = get_option('admin_email');
 				$additional_emails = str_replace(" ", "",  get_theme_mod("bw_additional_contact_emails", ''));
-				if ($additional_emails == '') {
+				if ($additional_emails !== '') {
 					$email_to .= $additional_emails;
 				}
 				$email_subject = __('ОБРАТНАЯ СВЯЗЬ', 'brainworks');
@@ -60,5 +60,4 @@
 			) );
 		} );
 	}
-
 ?>
