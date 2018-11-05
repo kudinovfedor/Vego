@@ -17,16 +17,16 @@
 			}
 
 			// Sending email
-			
-				$email_to = get_option('admin_email');
+				$admin_email = get_option("admin_email");
+				$email_to = "".$admin_email;
 				$additional_emails = str_replace(" ", "",  get_theme_mod("bw_additional_contact_emails", ''));
 				if ($additional_emails !== '') {
-					$email_to .= $additional_emails;
+					$email_to .= ',' . $additional_emails;
 				}
 				$email_subject = __('ОБРАТНАЯ СВЯЗЬ', 'brainworks');
 				$email_headers = array(
 					'Content-Type: text/html; charset=UTF-8',
-					'From: ' . get_bloginfo('name') . ' ' . '<'.$email_to.'>'
+					'From: ' . get_bloginfo('name') . ' ' . '<'.$admin_email.'>'
 				);
 				$email_content = '
 					<h1>' . $email_subject . '</h1>
